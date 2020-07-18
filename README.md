@@ -1,2 +1,2 @@
 # yarsp
-Yet Another React.js Starter Pack - ready for production 💎🛡 
+Yet Another React.js Starter-Pack - ready for production 💎🛡 
