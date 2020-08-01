@@ -33,12 +33,12 @@ const routes: IRoutes = {
 };
 
 // --------------------------- Public routes
-routes.public.push({exact: true, path: '/', page: 'LandingPage', component: <LandingPage />});
+routes.public.push({exact: true, path: '/', page: 'LandingPage', component: LandingPage});
 
 // --------------------------- Private routes
-routes.public.push({exact: true, path: '/', page: 'PrivateSpaceLanding', component: <PrivateSpaceLanding />});
-routes.private.push({exact: true, path: '/private', page: 'PrivateSpaceLanding', component: <PrivateSpaceLanding />});
+routes.public.push({exact: true, path: '/', page: 'PrivateSpaceLanding', component: PrivateSpaceLanding});
+routes.private.push({exact: true, path: '/private', page: 'PrivateSpaceLanding', component: PrivateSpaceLanding});
 
 // --------------------------- Shared routes
-routes.shared.push({exact: true, path: '/shared', page: 'SharedPage', component: <SharedPage />});
-routes.shared.push({exact: true, path: '/action/:type/:token', page: 'ActionPage', component: <ActionPage />});
+routes.shared.push({exact: true, path: '/shared', page: 'SharedPage', component: SharedPage});
+routes.shared.push({exact: true, path: '/action/:type/:token', page: 'ActionPage', component: ActionPage});

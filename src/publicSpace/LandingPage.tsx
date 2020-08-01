@@ -3,7 +3,7 @@ import React from "react";
 
 export {LandingPage};
 
-const LandingPage = (props: any) => {
+function LandingPage (props: any) {
 
   return(<>Landing Page</>);
 };
