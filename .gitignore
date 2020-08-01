@@ -2,7 +2,7 @@
 
 
 # ENV
-# No need to ignore .env files here
+# Don't ignore .env files here
 
 # MODULES
 node_modules/

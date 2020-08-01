@@ -1,5 +1,6 @@
 
 # ENV
+# Don't ignore .env files here
 
 # MODULES
 node_modules/
