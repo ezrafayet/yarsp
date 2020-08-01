@@ -60,5 +60,6 @@ Be sure to addapt this to your own strategy. Especially regarding :
 *[ ] Get rid of the "fsevents" error   
 *[ ] Add Docker   
 *[ ] Change the flavors strategy   
-*[ ] Remove CRA scripts   
+*[ ] Remove CRA scripts 
+*[ ] Add testing
  
