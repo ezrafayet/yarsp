@@ -51,7 +51,7 @@ Be sure to addapt this to your own strategy. Especially regarding :
 * npm run build:production for production
 
 ## TODO
-*[x] Setup React 
+*[x] Setup React  
 *[x] Setup the router 
 *[ ] Add abstract fetch routes
 *[ ] Build a layout page with statuses
