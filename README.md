@@ -52,13 +52,13 @@ Be sure to addapt this to your own strategy. Especially regarding :
 
 ## TODO
 *[x] Setup React  
-*[x] Setup the router 
-*[ ] Add abstract fetch routes
-*[ ] Build a layout page with statuses
-*[ ] Build a window
-*[x] Add a default route to handle mail actions
-*[ ] Get rid of the "fsevents" error
-*[ ] Add Docker
-*[ ] Change the flavors strategy
-*[ ] Remove CRA scripts
+*[x] Setup the router   
+*[ ] Add abstract fetch routes   
+*[ ] Build a layout page with statuses   
+*[ ] Build a window   
+*[x] Add a default route to handle mail actions   
+*[ ] Get rid of the "fsevents" error   
+*[ ] Add Docker   
+*[ ] Change the flavors strategy   
+*[ ] Remove CRA scripts   
  
