@@ -10,12 +10,17 @@ import {IRoute, routes} from "./routes";
 import {IAppContext} from "../IApp";
 import {AppContext} from "./context/AppContext";
 import {AbstractRoute} from "./AbstractRoute";
+import {Forbidden403} from "../sharedPages/Forbidden403";
+import {LandingPage} from "../publicSpace/LandingPage";
+import {PrivateSpaceLanding} from "../privateSpace/PrivateSpaceLanding";
 
 export {Routing};
 
 const Routing = (props: any) => {
 
   const appContext: IAppContext = useContext(AppContext) as IAppContext;
+  
+  const userStatus = appContext.appState.userStatus || "unidentified";
 
   return (<Fragment>
 
@@ -26,6 +31,14 @@ const Routing = (props: any) => {
     <Switch>
 
       {/*------------------------------ Display the correct landing page */}
+      {
+        userStatus === "unidentified" && <AbstractRoute exact={true} path={"/"} page={"LandingPage"}
+                                                        userStatusAuthorised={["unidentified", "unknown"]} component={LandingPage} rank={0} />
+      }
+      {
+        userStatus === "identified" && <AbstractRoute exact={true} path={"/"} page={"PrivateSpaceLanding"}
+                                                        userStatusAuthorised={["identified"]} component={PrivateSpaceLanding} rank={0} />
+      }
 
       {/*------------------------------ all the public routes should be generated here, if the current space is public */}
       {routes.public.map((item: IRoute, key: number) => (

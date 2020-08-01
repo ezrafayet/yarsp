@@ -17,6 +17,11 @@ const AbstractRoute = (props: IAbstractRoute) => {
   
   const appContext: IAppContext = useContext(AppContext) as IAppContext;
   
+  const Component = props.component;
+  
+  /**
+   * Checks if user is allowed to access the page
+   */
   const isRouteAllowedToUser: boolean = props.userStatusAuthorised.includes(appContext.appState.userStatus);
   
   if(!isRouteAllowedToUser) {
@@ -27,7 +32,6 @@ const AbstractRoute = (props: IAbstractRoute) => {
     <Route exact={props.exact}
            path={props.path}
            render={(componentProps) =>
-             (isRouteAllowedToUser ? <props.component {...componentProps} page={props.page}/> :
-               <Forbidden403 page={"Forbidden403"}/>)}
+             (isRouteAllowedToUser ? <Component {...componentProps} page={props.page}/> : <Forbidden403 page={"Forbidden403"}/>)}
     />);
 }

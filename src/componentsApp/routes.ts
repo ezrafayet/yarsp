@@ -3,33 +3,34 @@
  * public are the routes that don't need authentication to access
  * private are routes that needs authentication to access
  * shared are routes that should always be available to anyone (example: a callback sent by email should point here)
+ * Public and private routes MUST have a route pointing to the path "/", but right now the landing pages are not taken from here, should be refactored
  */
 
-import React from "react";
 import {LandingPage} from "../publicSpace/LandingPage"
 import {ActionPage} from "../sharedPages/ActionPage";
 import {PrivateSpaceLanding} from "../privateSpace/PrivateSpaceLanding";
 import {SharedPage} from "../sharedPages/SharedPage";
+import {FunctionComponent} from "react";
 
 export {routes};
 
 export interface IRoute {
   path: string;
   page: string;
-  component: any;
+  component: FunctionComponent<any>;
   exact: boolean;
 }
 
 interface IRoutes {
   public: IRoute[];
-  private: IRoute[];
   shared: IRoute[];
+  private: IRoute[];
 }
 
 const routes: IRoutes = {
   public: [],
-  private: [],
   shared: [],
+  private: [],
 };
 
 // --------------------------- Public routes
