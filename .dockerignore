@@ -1,0 +1,24 @@
+
+# ENV
+
+# MODULES
+node_modules/
+
+# BUILD
+build/
+dist/
+
+# IDE
+.idea/
+.code-workspace/
+.sublime-project/
+
+# DOCKER
+.dockerignore
+Dockerfile
+
+# GIT
+.git/
+
+# SPECIFIC
+README.md

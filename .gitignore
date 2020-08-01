@@ -1,0 +1,17 @@
+# Created by .ignore support plugin (hsz.mobi)
+
+
+# ENV
+# No need to ignore .env files here
+
+# MODULES
+node_modules/
+
+# BUILD
+build/
+dist/
+
+# IDE
+.idea/
+.code-workspace/
+.sublime-project/

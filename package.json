@@ -1,0 +1,46 @@
+{
+  "name": "yarsp",
+  "version": "1.0.0",
+  "description": "Yet Another React.js Starter-Pack - ready for production 💎🛡",
+  "main": "index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "build:local": "env-cmd -f ./.env.local npm run-script build",
+    "build:production": "env-cmd -f .env.productionbis npm run-script build",
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adzaria/yarsp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adzaria/kuboframe.co/issues"
+  },
+  "dependencies": {
+    "@types/react": "^16.9.43",
+    "@types/react-dom": "^16.9.8",
+    "@types/react-router-dom": "^5.1.5",
+    "date-fns": "^2.15.0",
+    "env-cmd": "^10.1.0",
+    "node-sass": "^4.14.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^3.4.1",
+    "typescript": "^3.9.7"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
