@@ -2,6 +2,12 @@
 
 Yet Another React.js Starter-Pack - in progress 💎🛡 
 
+## choices
+
+* Typescript
+* Sass
+* Using CRA scripts, will be removed in later version
+* You have the choice to use docker or not
 
 ## Run localy
 
