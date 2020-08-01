@@ -6,10 +6,10 @@
  */
 
 import React from "react";
-import {LandingPage} from "./publicSpace/LandingPage"
-import {ActionPage} from "./sharedPages/ActionPage";
-import {PrivateSpaceLanding} from "./privateSpace/PrivateSpaceLanding";
-import {SharedPage} from "./sharedPages/SharedPage";
+import {LandingPage} from "../publicSpace/LandingPage"
+import {ActionPage} from "../sharedPages/ActionPage";
+import {PrivateSpaceLanding} from "../privateSpace/PrivateSpaceLanding";
+import {SharedPage} from "../sharedPages/SharedPage";
 
 export {routes};
 
