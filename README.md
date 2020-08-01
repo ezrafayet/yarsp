@@ -5,7 +5,7 @@ Yet Another React.js Starter-Pack - in progress 💎🛡
 ## choices
 
 * Typescript
-* Sass
+* Sass - should probably be replaced by css in js
 * Using CRA scripts, will be removed in later version
 * You have the choice to use docker or not
 
