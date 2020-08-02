@@ -6,8 +6,8 @@
 import React, {Fragment, useContext} from "react";
 import {Switch, Route} from "react-router-dom";
 import {NoRoute404} from "../sharedPages/NoRoute404";
-import {IRoute, routes} from "./routes";
-import {IAppContext} from "../IApp";
+import {IRoute, routes} from "../../routes/routes";
+import {IAppContext} from "./IApp";
 import {AppContext} from "./contextApp/AppContext";
 import {AbstractRoute} from "./AbstractRoute";
 import {LandingPage} from "../publicSpace/LandingPage";

@@ -6,12 +6,12 @@
  * Public and private routes MUST have a route pointing to the path "/", but right now the landing pages are not taken from here, should be refactored
  */
 
-import {LandingPage} from "../publicSpace/LandingPage"
-import {ActionPage} from "../sharedPages/ActionPage";
-import {PrivateSpaceLanding} from "../privateSpace/PrivateSpaceLanding";
-import {SharedPage} from "../sharedPages/SharedPage";
+import {LandingPage} from "../components/publicSpace/LandingPage"
+import {ActionPage} from "../components/sharedPages/ActionPage";
+import {PrivateSpaceLanding} from "../components/privateSpace/PrivateSpaceLanding";
+import {SharedPage} from "../components/sharedPages/SharedPage";
 import {FunctionComponent} from "react";
-import {PrivatePage} from "../privateSpace/PrivatePage";
+import {PrivatePage} from "../components/privateSpace/PrivatePage";
 
 export {routes};
 

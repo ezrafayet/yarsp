@@ -1,8 +1,8 @@
 
 import React, {useContext} from "react";
 import {login, TLoginStatus} from "./dependenciesLandingPage/login";
-import {IAppContext, IAppState} from "../IApp";
-import {AppContext} from "../componentsApp/contextApp/AppContext";
+import {IAppContext, IAppState} from "../App/IApp";
+import {AppContext} from "../App/contextApp/AppContext";
 
 export {LandingPage};
 

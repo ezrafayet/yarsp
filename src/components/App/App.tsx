@@ -4,14 +4,14 @@
  */
 import React, {useContext, useEffect, useState} from "react";
 import {IAppContext, IAppProps, IAppState} from "./IApp";
-import {initialState} from "./componentsApp/initialStateApp/initialState";
-import {AppContext, AppProvider} from "./componentsApp/contextApp/AppContext";
+import {initialState} from "./initialStateApp/initialState";
+import {AppContext, AppProvider} from "./contextApp/AppContext";
 import {BrowserRouter as Router} from "react-router-dom";
-import {getSession} from "./componentsApp/effectsApp/getSession";
-import {AppLoading} from "./sharedPages/AppLoading";
-import {Routing} from "./componentsApp/Routing";
-import {Forbidden403} from "./sharedPages/Forbidden403";
-import {AppError} from "./sharedPages/AppError";
+import {getSession} from "./effectsApp/getSession";
+import {AppLoading} from "../sharedPages/AppLoading";
+import {Routing} from "./Routing";
+import {Forbidden403} from "../sharedPages/Forbidden403";
+import {AppError} from "../sharedPages/AppError";
 
 export {App};
 

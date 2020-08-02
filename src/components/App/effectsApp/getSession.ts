@@ -2,7 +2,7 @@
  * This function sets the session of the App
  * It should fetch to some /session/whoami endpoint for authentification
  */
-import {IAppState} from "../../IApp";
+import {IAppState} from "../IApp";
 
 export {getSession};
 

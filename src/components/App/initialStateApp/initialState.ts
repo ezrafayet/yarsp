@@ -1,4 +1,4 @@
-import {IAppState} from "../../IApp";
+import {IAppState} from "../IApp";
 
 export {initialState};
 
