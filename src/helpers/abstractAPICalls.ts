@@ -3,12 +3,12 @@
  * Want to use axios, or unfetch or another library ? It should only be put here so you keep your code simple elsewhere so can switch it easily
  */
 
-export {abstractGetFetch};
-export {abstractPutFetch};
-export {abstractPostFetch};
-export {abstractPostFileFetch};
+export {abstractGetCall};
+export {abstractPutCall};
+export {abstractPostCall};
+export {abstractPostFileCall};
 
-const abstractGetFetch: (uri: string, headers: any) => object = async(uri: string, headers: any): Promise<any> => {
+const abstractGetCall: (uri: string, headers: any) => object = async(uri: string, headers: any): Promise<any> => {
   
   const shouldLogRequest: boolean = process.env.MODE === "local";
   
@@ -48,15 +48,15 @@ const abstractGetFetch: (uri: string, headers: any) => object = async(uri: strin
   }
 }
 
-const abstractPutFetch = async() => {
+const abstractPutCall = async() => {
 
 }
 
-const abstractPostFetch = async() => {
+const abstractPostCall = async() => {
 
 }
 
-const abstractPostFileFetch = async() => {
+const abstractPostFileCall = async() => {
 
 }
 
