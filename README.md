@@ -2,6 +2,8 @@
 
 Yet Another React.js Starter-Pack - in progress 💎🛡 
 
+Aim: to build a minimalist production-ready app for any startup-like structure with productivity/quality in mind to shoot a website a day
+
 ## Choices and discussions
 
 * Works both with or without Docker (see "how to run" sections bellow)
@@ -14,6 +16,8 @@ Yet Another React.js Starter-Pack - in progress 💎🛡
 * Fetch is used for API calls, but an abstract layer is used to normalize fetching. If you add a library (say Axios, unfetch or react-refetch by Heroku team) you'll only need it in one file. 
 * Sass - will probably be replaced by css in js
 * CRA scripts (start, build ...) - will be removed in later versions
+* There is no navbar, why ? there are too many different choices and situations
+* There are no animation, no style (appart from resetting all css and adding responsive breakpoints)
 
 ## What is the difference with other starterpacks ?
 
@@ -80,7 +84,7 @@ Be sure to addapt this to your own strategy. Especially regarding :
 * npm run build:local for local build
 * npm run build:production for production
 
-## Deploy
+## Deploy
 
 The choice is yours:
 * AWS S3 Buckets are very strong, easy and cheap to start to hosting a static website (paired with Route53 and CloudFront). Start by droping the files, you'll build a deploy-and-rollback strategy when needed, with buddy.io or aws pipes.
@@ -92,13 +96,14 @@ The choice is yours:
 *[x] Setup React  
 *[x] Setup the router   
 *[x] Add abstract fetch routes   
-*[x] Build a basic login mockup   
-*[ ] Build a layout page with statuses 
-*[ ] Build a window   
-*[x] Add a default route to handle mail actions   
+*[x] Add scss for responsive  app    
+*[x] Build a basic session/login/logout mockup   
+*[ ] Build a layout page with statuses   
+*[ ] Build a window layout with statuses   
+*[x] Add a default route to handle mail/callback actions   
 *[ ] Get rid of the "fsevents" error   
 *[ ] Add Docker   
-*[ ] Change the flavors strategy   
-*[ ] Remove CRA scripts    
+*[ ] Change the flavors strategy (webpack needed)   
+*[ ] Remove CRA scripts     
 *[ ] Add testing   
  

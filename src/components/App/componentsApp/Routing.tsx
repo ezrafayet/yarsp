@@ -1,12 +1,12 @@
 import React, {Fragment, useContext} from "react";
 import {Switch, Route} from "react-router-dom";
-import {NoRoute404} from "../../sharedPages/NoRoute404";
+import {NoRoute404} from "../../sharedComponents/pages/NoRoute404";
 import {IRoute, routes} from "../../../routes/routes";
 import {IAppContext} from "../IApp";
 import {AppContext} from "../contextApp/AppContext";
-import {AbstractRoute} from "../AbstractRoute";
-import {LandingPage} from "../../publicSpace/LandingPage";
-import {PrivateSpaceLanding} from "../../privateSpace/PrivateSpaceLanding";
+import {AbstractRoute} from "./AbstractRoute";
+import {LandingPage} from "../../publicComponents/LandingPage";
+import {PrivateSpaceLanding} from "../../privateComponents/PrivateSpaceLanding";
 
 export {Routing};
 

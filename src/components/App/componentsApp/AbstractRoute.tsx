@@ -1,8 +1,8 @@
 import React, {useContext} from "react";
-import {IRoute} from "../../routes/routes";
-import {IAppContext, IAppState} from "./IApp";
-import {AppContext} from "./contextApp/AppContext";
-import {Forbidden403} from "../sharedComponents/pages/Forbidden403";
+import {IRoute} from "../../../routes/routes";
+import {IAppContext, IAppState} from "../IApp";
+import {AppContext} from "../contextApp/AppContext";
+import {Forbidden403} from "../../sharedComponents/pages/Forbidden403";
 import {Route} from "react-router-dom";
 
 export {AbstractRoute};

@@ -1,10 +1,10 @@
 import React, {useContext} from "react";
 import {IAppContext, IAppProps} from "../IApp";
 import {AppContext} from "../contextApp/AppContext";
-import {AppLoading} from "../../sharedPages/AppLoading";
+import {AppLoading} from "../../sharedComponents/pages/AppLoading";
 import {Routing} from "./Routing";
-import {Forbidden403} from "../../sharedPages/Forbidden403";
-import {AppError} from "../../sharedPages/AppError";
+import {Forbidden403} from "../../sharedComponents/pages/Forbidden403";
+import {AppError} from "../../sharedComponents/pages/AppError";
 
 export {SwitchAppStatus};
 
