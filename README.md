@@ -2,8 +2,6 @@
 
 Yet Another React.js Starter-Pack - in progress 💎🛡 
 
-Aim: to build a minimalist production-ready app for any startup-like structure with productivity/quality in mind to shoot a website a day
-
 ## Choices and discussions
 
 * Works both with or without Docker (see "how to run" sections bellow)
