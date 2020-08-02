@@ -11,6 +11,7 @@ import {ActionPage} from "../sharedPages/ActionPage";
 import {PrivateSpaceLanding} from "../privateSpace/PrivateSpaceLanding";
 import {SharedPage} from "../sharedPages/SharedPage";
 import {FunctionComponent} from "react";
+import {PrivatePage} from "../privateSpace/PrivatePage";
 
 export {routes};
 
@@ -38,7 +39,7 @@ routes.public.push({exact: true, path: '/', page: 'LandingPage', component: Land
 
 // --------------------------- Private routes
 routes.public.push({exact: true, path: '/', page: 'PrivateSpaceLanding', component: PrivateSpaceLanding});
-routes.private.push({exact: true, path: '/private', page: 'PrivateSpaceLanding', component: PrivateSpaceLanding});
+routes.private.push({exact: true, path: '/private', page: 'PrivateSpaceLanding', component: PrivatePage});
 
 // --------------------------- Shared routes
 routes.shared.push({exact: true, path: '/shared', page: 'SharedPage', component: SharedPage});

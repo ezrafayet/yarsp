@@ -27,6 +27,7 @@ const App = (props: IAppProps) => {
 
   let contextValue: IAppContext = {
     appState: appState,
+    setAppState: setAppState,
   };
 
   return (<AppProvider value={contextValue}>

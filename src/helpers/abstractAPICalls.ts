@@ -10,7 +10,7 @@ export {abstractPostFileCall};
 
 const abstractGetCall: (uri: string, headers: any) => object = async(uri: string, headers: any): Promise<any> => {
   
-  const shouldLogRequest: boolean = process.env.MODE === "local";
+  const shouldLogRequest: boolean = process.env.REACT_APP_MODE === "local";
   
   try {
     

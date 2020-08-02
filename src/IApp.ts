@@ -18,6 +18,7 @@ interface IAppState {
 
 interface IAppContext {
   appState: IAppState,
+  setAppState: Function,
   // setPage: Function,
   // logout: Function,
 }
