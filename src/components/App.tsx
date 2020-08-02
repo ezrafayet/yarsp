@@ -3,12 +3,12 @@
  * It's purpose here is to deliver content according to the rights of the user and the requested url
  */
 import React, {useEffect, useState} from "react";
-import {IAppContext, IAppProps, IAppState} from "./IApp";
-import {initialState} from "./initialStateApp/initialState";
-import {AppProvider} from "./contextApp/AppContext";
+import {IAppContext, IAppProps, IAppState} from "./componentsApp/IApp";
+import {initialState} from "./componentsApp/initialStateApp/initialState";
+import {AppProvider} from "./componentsApp/contextApp/AppContext";
 import {BrowserRouter as Router} from "react-router-dom";
-import {getSession} from "./effectsApp/getSession";
-import {SwitchAppStatus} from "./componentsApp/SwitchAppStatus";
+import {getSession} from "./componentsApp/effectsApp/getSession";
+import {SwitchAppStatus} from "./componentsApp/componentsApp/SwitchAppStatus";
 
 
 export {App};
