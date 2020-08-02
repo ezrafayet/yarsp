@@ -9,7 +9,7 @@ import {Route} from "react-router-dom";
 export {AbstractRoute};
 
 interface IAbstractRoute extends IRoute {
-  rank: number;
+  key: number;
   userStatusAuthorised: IAppState["userStatus"][];
 }
 

@@ -10,7 +10,6 @@ import {IRoute, routes} from "./routes";
 import {IAppContext} from "../IApp";
 import {AppContext} from "./contextApp/AppContext";
 import {AbstractRoute} from "./AbstractRoute";
-import {Forbidden403} from "../sharedPages/Forbidden403";
 import {LandingPage} from "../publicSpace/LandingPage";
 import {PrivateSpaceLanding} from "../privateSpace/PrivateSpaceLanding";
 
@@ -33,24 +32,24 @@ const Routing = (props: any) => {
       {/*------------------------------ Display the correct landing page */}
       {
         userStatus === "unidentified" && <AbstractRoute exact={true} path={"/"} page={"LandingPage"}
-                                                        userStatusAuthorised={["unidentified", "unknown"]} component={LandingPage} rank={0} />
+                                                        userStatusAuthorised={["unidentified", "unknown"]} component={LandingPage} key={0} />
       }
       {
         userStatus === "identified" && <AbstractRoute exact={true} path={"/"} page={"PrivateSpaceLanding"}
-                                                        userStatusAuthorised={["identified"]} component={PrivateSpaceLanding} rank={0} />
+                                                        userStatusAuthorised={["identified"]} component={PrivateSpaceLanding} key={0} />
       }
 
       {/*------------------------------ all the public routes should be generated here, if the current space is public */}
       {routes.public.map((item: IRoute, key: number) => (
-        <AbstractRoute {...item} rank={key} userStatusAuthorised={["unidentified", "unknown"]} />))}
+        <AbstractRoute {...item} key={key} userStatusAuthorised={["unidentified", "unknown"]} />))}
 
       {/*------------------------------ all the private routes should be generated here, if the current space is private */}
       {routes.private.map((item: IRoute, key: number) => (
-        <AbstractRoute {...item} rank={key} userStatusAuthorised={["identified"]} />))}
+        <AbstractRoute {...item} key={key} userStatusAuthorised={["identified"]} />))}
 
       {/*------------------------------ all the shared routes should be generated here, with no condition */}
       {routes.shared.map((item: IRoute, key: number) => (
-        <AbstractRoute {...item} rank={key} userStatusAuthorised={["unidentified", "unknown", "identified"]} />))}
+        <AbstractRoute {...item} key={key} userStatusAuthorised={["unidentified", "unknown", "identified"]} />))}
 
       {/*-------- Strategy for 403: grant authorisation per route */}
 
