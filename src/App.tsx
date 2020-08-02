@@ -4,10 +4,10 @@
  */
 import React, {useContext, useEffect, useState} from "react";
 import {IAppContext, IAppProps, IAppState} from "./IApp";
-import {initialState} from "./componentsApp/initialState/initialState";
-import {AppContext, AppProvider} from "./componentsApp/context/AppContext";
+import {initialState} from "./componentsApp/initialStateApp/initialState";
+import {AppContext, AppProvider} from "./componentsApp/contextApp/AppContext";
 import {BrowserRouter as Router} from "react-router-dom";
-import {getSession} from "./componentsApp/effects/getSession";
+import {getSession} from "./componentsApp/effectsApp/getSession";
 import {AppLoading} from "./sharedPages/AppLoading";
 import {Routing} from "./componentsApp/Routing";
 import {Forbidden403} from "./sharedPages/Forbidden403";
