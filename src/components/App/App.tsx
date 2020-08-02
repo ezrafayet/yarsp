@@ -2,55 +2,47 @@
  * This is the main file that holds the app's React logic
  * It's purpose here is to deliver content according to the rights of the user and the requested url
  */
-import React, {useContext, useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {IAppContext, IAppProps, IAppState} from "./IApp";
 import {initialState} from "./initialStateApp/initialState";
-import {AppContext, AppProvider} from "./contextApp/AppContext";
+import {AppProvider} from "./contextApp/AppContext";
 import {BrowserRouter as Router} from "react-router-dom";
 import {getSession} from "./effectsApp/getSession";
-import {AppLoading} from "../sharedPages/AppLoading";
-import {Routing} from "./Routing";
-import {Forbidden403} from "../sharedPages/Forbidden403";
-import {AppError} from "../sharedPages/AppError";
+import {SwitchAppStatus} from "./componentsApp/SwitchAppStatus";
+
 
 export {App};
 
 const App = (props: IAppProps) => {
-
+  
   const [appState, setAppState]: [IAppState, Function] = useState(initialState);
-
+  
+  /**
+   * Asks the server about current session
+   */
   useEffect(() => {
-    (async()=>{
+    (async() => {
       await getSession(setAppState);
     })();
   }, []);
-
+  
+  /**
+   * Defines the context (will be made available in any other component)
+   */
   let contextValue: IAppContext = {
     appState: appState,
     setAppState: setAppState,
   };
-
+  
+  /**
+   * Displays the App
+   *  - <AppProvider/> provides the context to the App
+   *  - <Router/> makes client routing available from anywhere
+   */
   return (<AppProvider value={contextValue}>
     <Router>
       <SwitchAppStatus {...props} />
     </Router>
   </AppProvider>);
-
-}
-
-function SwitchAppStatus (props: IAppProps) {
-
-  const appContext: IAppContext = useContext(AppContext) as IAppContext;
-
-  switch(appContext.appState.appStatus) {
-    case 'loading':
-      return (<AppLoading />);
-    case 'loaded':
-      return (<Routing />);
-    case 'forbidden':
-      return (<Forbidden403 />);
-    case 'error':
-    default:
-      return(<AppError />);
-  }
+  
 }
