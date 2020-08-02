@@ -15,6 +15,16 @@ Yet Another React.js Starter-Pack - in progress 💎🛡
 * Sass - will probably be replaced by css in js
 * CRA scripts (start, build ...) - will be removed in later versions
 
+## What is the difference with other starterpacks ?
+
+Here you have everything setup to quickly develop your app :
+* Api calls can be made out of the box
+* Error pages (404, 403, Server unavailable) are handled out of the box
+* The login/logout and session logic are already here
+* The routing logic is already here
+* A page layout is available out of the box (to help you to handle page loading and page statuses)
+* A context is defined on the App level
+
 ## Versions tested
 
 React 16  
