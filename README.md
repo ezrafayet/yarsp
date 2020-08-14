@@ -101,12 +101,12 @@ The choice is yours:
 *[x] Add abstract fetch routes   
 *[ ] Add breakpoints in scss
 *[x] Build a basic session/login/logout mockup   
-*[ ] Build a layout page with statuses   
-*[ ] Build a window layout with statuses   
+*[x] Build a layout page with statuses   
+*[x] Build a window layout with statuses   
 *[x] Add a default route to handle mail/callback actions   
 *[ ] Get rid of the "fsevents" error   
 *[ ] Add Docker   
 *[x] Change the .env strategy  
 *[ ] Remove CRA scripts     
-*[ ] Add testing   
+*[ ] Add testing    
  

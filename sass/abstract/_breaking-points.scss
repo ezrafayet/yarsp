@@ -1,0 +1,54 @@
+/**
+  * 3 break points gives us 4 displays
+  * - smartphones
+  * - tablets
+  * - laptops
+  * - desktop
+  */
+
+$smartphone-portrait: 776px;
+$tablet-landscape: 1024px;
+$laptop: 1280px;
+
+@mixin smartphones-only {
+  @media (min-width: #{0px}) and (max-width: #{$smartphone-portrait}) {
+    @content;
+  }
+}
+
+@mixin smartphones-and-tablets-only {
+  @media (min-width: #{0px}) and (max-width: #{$tablet-landscape}) {
+    @content;
+  }
+}
+
+@mixin tablets-only {
+  @media (min-width: $smartphone-portrait + 1) and (max-width: #{$tablet-landscape}) {
+    @content;
+  }
+}
+
+@mixin tablets-and-bigger-only {
+  @media (min-width: $smartphone-portrait + 1) {
+    @content;
+  }
+}
+
+@mixin laptops-only {
+  @media ((min-width: $tablet-landscape + 1) and (max-width: #{$laptop})) {
+    @content;
+  }
+}
+
+@mixin laptops-and-bigger-only {
+  @media (min-width: $tablet-landscape + 1) {
+    @content;
+  }
+}
+
+@mixin desktop-and-bigger-only {
+  @media (min-width: $laptop + 1) {
+    @content;
+  }
+}
+

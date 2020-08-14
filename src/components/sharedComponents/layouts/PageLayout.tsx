@@ -22,14 +22,16 @@ const PageLayout = (props: IPageLayout) => {
 function SwitchPageStatus(props: IPageLayout) {
   
   switch(props.pageStatus) {
+    
     case 'loading':
       return(<>Loading...</>);
+      
     case 'forbidden':
       return(<>Forbidden</>);
+      
     case 'loaded':
-      return(<>
-        {props.children}
-      </>);
+      return props.children;
+      
     default:
     case 'error':
       return(<>Error</>);
