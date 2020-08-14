@@ -1,8 +1,8 @@
-import {IAppState} from "../IApp";
+import {IAppState} from "./IApp";
 
-export {initialState};
+export {appInitialState};
 
-const initialState: IAppState = {
+const appInitialState: IAppState = {
   mode: 'unknown',
   appStatus: 'loading',
   userStatus: 'unknown',

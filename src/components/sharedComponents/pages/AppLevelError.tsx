@@ -1,8 +1,8 @@
 
 import React from "react";
 
-export {AppError};
+export {AppLevelError};
 
-const AppError = (props: any) => {
+const AppLevelError = (props: any) => {
   return(<>The application is currently not available</>)
 }

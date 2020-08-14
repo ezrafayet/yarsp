@@ -1,12 +1,12 @@
 import React, {Fragment, useContext} from "react";
 import {Switch, Route} from "react-router-dom";
-import {NoRoute404} from "../../sharedComponents/pages/NoRoute404";
-import {IRoute, routes} from "../../../routes/routes";
-import {IAppContext} from "../IApp";
-import {AppContext} from "../contextApp/AppContext";
-import {AbstractRoute} from "./AbstractRoute";
-import {LandingPage} from "../../publicComponents/LandingPage";
-import {PrivateSpaceLanding} from "../../privateComponents/PrivateSpaceLanding";
+import {AppLevelNoRoute404} from "../sharedComponents/pages/AppLevelNoRoute404";
+import {IRoute, routes} from "../../routes/routes";
+import {IAppContext} from "./state/IApp";
+import {AppContext} from "./context/AppContext";
+import {AbstractRoute} from "./componentsRouting/AbstractRoute";
+import {LandingPage} from "../publicSpacePages/LandingPage";
+import {PrivateSpaceLanding} from "../privateSpacePages/PrivateSpaceLanding";
 
 export {Routing};
 
@@ -57,7 +57,7 @@ const Routing = (props: any) => {
       {/*-------- Strategy for 403: grant authorisation per route */}
 
       {/* 404 Fallthrough ------------------------------------------------- */}
-      <Route render={(componentProps) => <NoRoute404 {...componentProps} page="NoRoute404"/>}/>
+      <Route render={(componentProps) => <AppLevelNoRoute404 {...componentProps} page="AppLevelNoRoute404"/>}/>
 
     </Switch>
 

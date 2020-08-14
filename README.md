@@ -99,7 +99,7 @@ The choice is yours:
 *[x] Setup React  
 *[x] Setup the router   
 *[x] Add abstract fetch routes   
-*[ ] Add scss for responsive  app    
+*[ ] Add breakpoints in scss
 *[x] Build a basic session/login/logout mockup   
 *[ ] Build a layout page with statuses   
 *[ ] Build a window layout with statuses   

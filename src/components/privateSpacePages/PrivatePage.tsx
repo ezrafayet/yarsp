@@ -1,8 +1,8 @@
 
 import React, {useContext} from "react";
-import {logout, TLogoutStatus} from "./sharedDependencies/logout";
-import {IAppContext, IAppState} from "../componentsApp/IApp";
-import {AppContext} from "../componentsApp/contextApp/AppContext";
+import {logout, TLogoutStatus} from "../../utils/logout";
+import {IAppContext, IAppState} from "../componentsApp/state/IApp";
+import {AppContext} from "../componentsApp/context/AppContext";
 
 export {PrivatePage};
 
