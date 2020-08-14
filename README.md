@@ -59,6 +59,11 @@ Many improvements have to be made, some are in the todo bellow, others are here 
 * Check if it is a good practise to use a function inside useEffect and pass setState to it
 * Check if the routes couldn't be written better
 
+## .env strategy
+
+Environment vars can be set in the .env, they will be read when transpiling.
+You could create one .env.local, .env.production ... with react-scripts or by using "env-cmd -f ./.env.local npm run-script build", but this strategy is enough. 
+
 ## Notes
 
 * Fetch have been replaced by setTimeout, to mock a fetching, don't be surprised ...
@@ -94,14 +99,14 @@ The choice is yours:
 *[x] Setup React  
 *[x] Setup the router   
 *[x] Add abstract fetch routes   
-*[x] Add scss for responsive  app    
+*[ ] Add scss for responsive  app    
 *[x] Build a basic session/login/logout mockup   
 *[ ] Build a layout page with statuses   
 *[ ] Build a window layout with statuses   
 *[x] Add a default route to handle mail/callback actions   
 *[ ] Get rid of the "fsevents" error   
 *[ ] Add Docker   
-*[ ] Change the flavors strategy (webpack needed)   
+*[x] Change the .env strategy  
 *[ ] Remove CRA scripts     
 *[ ] Add testing   
  

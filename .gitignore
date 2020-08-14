@@ -1,8 +1,7 @@
 # Created by .ignore support plugin (hsz.mobi)
 
-
 # ENV
-# Don't ignore .env files here
+.env
 
 # MODULES
 node_modules/
