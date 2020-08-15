@@ -2,10 +2,9 @@
  * This is the main file that holds the app's React logic
  * It's purpose here is to deliver content according to the rights of the user and the requested url
  */
-import React, {useContext, useEffect, useState} from "react";
-import "./componentsApp/style/App.scss";
-import {IAppContext, IAppProps, IAppState} from "./componentsApp/state/IApp";
-import {appInitialState} from "./componentsApp/state/appInitialState";
+import React, {useContext, useEffect, useReducer, useState} from "react";
+import "./App.scss";
+import {IAppContext, IAppProps, IAppSession} from "./componentsApp/state/IApp";
 import {AppContext, AppProvider} from "./componentsApp/context/AppContext";
 import {BrowserRouter as Router} from "react-router-dom";
 import {getSession} from "../utils/getSession";
@@ -13,20 +12,32 @@ import {AppLevelLoading} from "./sharedComponents/pages/AppLevelLoading";
 import {Routing} from "./componentsApp/Routing";
 import {AppLevelForbidden403} from "./sharedComponents/pages/AppLevelForbidden403";
 import {AppLevelError} from "./sharedComponents/pages/AppLevelError";
+import {sessionReducer} from "./componentsApp/reducers/sessionReducer";
+import {initialSession} from "./componentsApp/state/initialSession";
+import {navigationReducer} from "./componentsApp/reducers/navigationReducer";
+import {initialNavigation} from "./componentsApp/state/initialNavigation";
+import {panelsReducer} from "./componentsApp/reducers/panelsReducer";
+import {initialPanels} from "./componentsApp/state/initialPanels";
 
 
 export {App};
 
 const App = (props: IAppProps) => {
   
-  const [appState, setAppState]: [IAppState, Function] = useState(appInitialState);
+  /**
+   * App state
+   */
+  const [appSession, dispatchSession] = useReducer(sessionReducer, initialSession);
+  const [appNavigation, dispatchNavigation] = useReducer(navigationReducer, initialNavigation);
+  const [appPanels, dispatchPanels] = useReducer(panelsReducer, initialPanels);
   
   /**
    * Asks the server about current session
    */
   useEffect(() => {
     (async() => {
-      await getSession(setAppState);
+      const session: IAppSession = await getSession();
+      dispatchSession({type: "SET_SESSION", value: session});
     })();
   }, []);
   
@@ -34,8 +45,12 @@ const App = (props: IAppProps) => {
    * Defines the context (will be made available in any other component)
    */
   let contextValue: IAppContext = {
-    appState: appState,
-    setAppState: setAppState,
+    appSession: appSession,
+    appNavigation: appNavigation,
+    appPanels: appPanels,
+    dispatchSession: dispatchSession,
+    dispatchNavigation: dispatchNavigation,
+    dispatchPanels: dispatchPanels,
   };
   
   return (<AppProvider value={contextValue}>
@@ -59,7 +74,7 @@ function SwitchAppStatus(props: any) {
   
   const appContext: IAppContext = useContext(AppContext) as IAppContext;
   
-  switch(appContext.appState.appStatus) {
+  switch(appContext.appSession.appStatus) {
     
     case 'loading':
       return (<AppLevelLoading/>);

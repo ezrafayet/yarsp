@@ -1,6 +1,6 @@
 import React, {useContext} from "react";
 import {IRoute} from "../../../routes/routes";
-import {IAppContext, IAppState} from "../state/IApp";
+import {IAppContext, IAppSession} from "../state/IApp";
 import {AppContext} from "../context/AppContext";
 import {AppLevelForbidden403} from "../../sharedComponents/pages/AppLevelForbidden403";
 import {Route} from "react-router-dom";
@@ -9,7 +9,7 @@ export {AbstractRoute};
 
 interface IAbstractRoute extends IRoute {
   key: number;
-  userStatusAuthorised: IAppState["userStatus"][];
+  userStatusAuthorised: IAppSession["userStatus"][];
 }
 
 /**
@@ -25,7 +25,7 @@ const AbstractRoute = (props: IAbstractRoute) => {
   /**
    * Checks if user is allowed to access the page
    */
-  const isRouteAllowedToUser: boolean = props.userStatusAuthorised.includes(appContext.appState.userStatus);
+  const isRouteAllowedToUser: boolean = props.userStatusAuthorised.includes(appContext.appSession.userStatus);
   
   if(!isRouteAllowedToUser) {
     return (<Route exact={props.exact} path={props.path}

@@ -20,7 +20,7 @@ const Routing = (props: any) => {
 
   const appContext: IAppContext = useContext(AppContext) as IAppContext;
   
-  const userStatus = appContext.appState.userStatus || "unidentified";
+  const userStatus = appContext.appSession.userStatus || "unidentified";
 
   return (<Fragment>
 

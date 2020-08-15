@@ -1,8 +1,6 @@
 import React from "react";
 
-export {AppProvider};
-export {AppContext};
-export {AppConsumer};
+export {AppProvider, AppContext, AppConsumer};
 
 const AppContext = React.createContext({});
 

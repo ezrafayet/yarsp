@@ -1,28 +1,35 @@
+export type {IAppProps, IAppContext, IAppSession, IAppNavigation, IAppPanels,};
 
-export type {IAppState};
-export type {IAppProps};
-export type {IAppContext};
-
-interface IAppState {
+interface IAppSession {
+  
   mode: 'local' | 'production' | 'unknown';
   appStatus: 'loading' | 'error' | 'forbidden' | 'loaded';
   userStatus: 'unidentified' | 'identified' | 'unknown';
   language: 'FR' | 'EN';
   theme: 'light' | 'dark';
+}
+
+interface IAppNavigation {
+  
   page: string;
   subPage: string;
-  session: any;
+}
+
+interface IAppPanels {
+  
   window: any;
   menu: any;
 }
 
 interface IAppContext {
-  appState: IAppState,
-  setAppState: Function,
-  // setPage: Function,
-  // logout: Function,
+  
+  appSession: IAppSession,
+  appNavigation: IAppNavigation,
+  appPanels: IAppPanels,
+  dispatchSession: Function,
+  dispatchNavigation: Function,
+  dispatchPanels: Function,
 }
 
 interface IAppProps {
-
 }

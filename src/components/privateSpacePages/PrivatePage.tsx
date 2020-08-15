@@ -1,7 +1,7 @@
 
 import React, {useContext} from "react";
 import {logout, TLogoutStatus} from "../../utils/logout";
-import {IAppContext, IAppState} from "../componentsApp/state/IApp";
+import {IAppContext} from "../componentsApp/state/IApp";
 import {AppContext} from "../componentsApp/context/AppContext";
 
 export {PrivatePage};
@@ -11,19 +11,15 @@ const PrivatePage = (props: any) => {
   
   const appContext: IAppContext = useContext(AppContext) as IAppContext;
   
-  const handleLogoutClick = async (e: any) => {
+  const clickLogoutHandler = async (e: any) => {
+    
     e.preventDefault();
+    
     const logoutStatus: TLogoutStatus = await logout();
+    
     if(logoutStatus === "success") {
-      // This should not exist in production, we should "just" fetch the session
-      appContext.setAppState((prevState: IAppState) => ({
-        ...prevState,
-        userStatus: "unidentified",
-      }));
-      // Go to landing page
+      appContext.dispatchSession({type: "INITIALIZE_SESSION", value: null});
       props.history.push('/');
-      // Should provoke a new session-fetch
-
     }
   }
   
@@ -31,7 +27,7 @@ const PrivatePage = (props: any) => {
     Yet another private page
     <br/><br/>
     <button onClick={async (e: any) => {
-      await handleLogoutClick(e);
+      await clickLogoutHandler(e);
     }}>
       Logout
     </button>

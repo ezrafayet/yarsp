@@ -1,7 +1,7 @@
 
 import React, {useContext} from "react";
-import {login, TLoginStatus} from "../../utils/login";
-import {IAppContext, IAppState} from "../componentsApp/state/IApp";
+import {ILoginAnswer, login} from "../../utils/login";
+import {IAppContext} from "../componentsApp/state/IApp";
 import {AppContext} from "../componentsApp/context/AppContext";
 
 export {LandingPage};
@@ -14,19 +14,13 @@ const LandingPage = (props: any) => {
     
     e.preventDefault();
     
-    const loginStatus: TLoginStatus = await login("id", "1234");
+    const loginAnswer: ILoginAnswer = await login("id", "1234");
     
-    switch(loginStatus) {
+    switch(loginAnswer.status) {
       
       case "success":
-        // This should not exist in production, we should "just" fetch the session
-        appContext.setAppState((prevState: IAppState) => ({
-          ...prevState,
-          userStatus: "identified",
-        }));
-        // Go to landing page
+        appContext.dispatchSession({type: "SET_SESSION", value: loginAnswer.data?.session});
         props.history.push('/');
-        // Provoke a new session-fetch
         break;
         
       case "wrongId":

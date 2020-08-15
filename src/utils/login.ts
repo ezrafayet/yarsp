@@ -1,14 +1,31 @@
-
 export {login};
 
-export type TLoginStatus = "success"|"wrongId"|"wrongPassword"|"tokenExpired"|"error";
+export type {ILoginAnswer}
 
-const login = async(id: string, password: string): Promise<TLoginStatus> => {
+type TLoginStatus = "success" | "wrongId" | "wrongPassword" | "tokenExpired" | "error";
+
+interface ILoginAnswer {
+  status: TLoginStatus;
+  data?: {
+    session?: any
+  };
+}
+
+const login = async(id: string, password: string): Promise<ILoginAnswer> => {
   try {
-
-    return "success";
-
-  } catch(error) {
+    
+    // Login here
+    
+    return ({
+      status: "success",
+      data: {
+        session: {
+          userStatus: 'identified',
+        }
+      }
+    });
+    
+  } catch (error) {
     throw error;
   }
 }
