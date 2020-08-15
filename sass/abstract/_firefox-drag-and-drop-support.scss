@@ -1,0 +1,7 @@
+/*
+onDragStart must have
+e.dataTransfer.setData('text/plain', '');
+
+onDrop must have
+event.preventDefault();
+*/

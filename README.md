@@ -99,14 +99,13 @@ The choice is yours:
 *[x] Setup React  
 *[x] Setup the router   
 *[x] Add abstract fetch routes   
-*[ ] Add breakpoints in scss
+*[x] Add breakpoints in scss
 *[x] Build a basic session/login/logout mockup   
 *[x] Build a layout page with statuses   
 *[x] Build a window layout with statuses   
 *[x] Add a default route to handle mail/callback actions   
-*[ ] Get rid of the "fsevents" error   
+*[ ] Get rid of the "fsevents" error + remove CRA  
 *[ ] Add Docker   
 *[x] Change the .env strategy  
-*[ ] Remove CRA scripts     
 *[ ] Add testing    
  
