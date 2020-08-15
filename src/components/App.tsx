@@ -3,6 +3,7 @@
  * It's purpose here is to deliver content according to the rights of the user and the requested url
  */
 import React, {useContext, useEffect, useState} from "react";
+import "./componentsApp/style/App.scss";
 import {IAppContext, IAppProps, IAppState} from "./componentsApp/state/IApp";
 import {appInitialState} from "./componentsApp/state/appInitialState";
 import {AppContext, AppProvider} from "./componentsApp/context/AppContext";

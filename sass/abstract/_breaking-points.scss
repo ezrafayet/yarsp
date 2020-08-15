@@ -35,7 +35,7 @@ $laptop: 1280px;
 }
 
 @mixin laptops-only {
-  @media ((min-width: $tablet-landscape + 1) and (max-width: #{$laptop})) {
+  @media (min-width: $tablet-landscape + 1) and (max-width: #{$laptop}) {
     @content;
   }
 }
