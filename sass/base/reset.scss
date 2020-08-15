@@ -248,7 +248,7 @@ input[type="reset"],
 input[type="submit"] {
     -webkit-appearance: button; /* 2 */
     cursor: pointer; /* 3 */
-    *overflow: visible;  /* 4 */
+    *overflow: visible; /* 4 */
 }
 
 /**
@@ -365,4 +365,23 @@ textarea {
     background: #ccc;
     color: #000;
     padding: 0.2em 0;
+}
+
+/**
+Added code below
+*/
+
+a {
+    color: black;
+    text-decoration: none;
+
+    &:hover {
+        color: black;
+        text-decoration: none;
+    }
+    &:active {
+        color: black;
+        text-decoration: none;
+    }
+
 }

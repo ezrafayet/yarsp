@@ -1,9 +1,9 @@
 /**
   * 3 break points gives us 4 displays
-  * - smartphones
-  * - tablets
-  * - laptops
-  * - desktop
+  * - smartphones (until $smartphone-portrait)
+  * - tablets (until $tablet-landscape)
+  * - laptops (until $laptop)
+  * - desktop (above)
   */
 
 $smartphone-portrait: 776px;
