@@ -10,16 +10,22 @@ const navigationReducer = (state: IAppNavigation, action: {
   switch(action.type) {
     
     case 'SET_PAGE':
-      return ({
-        ...state,
-        page: action.value,
-      });
+      if(action.value !== state.page) {
+        return ({
+          ...state,
+          page: action.value,
+        });
+      }
+      return (state);
     
     case 'SET_SUB_PAGE':
-      return ({
-        ...state,
-        page: action.value,
-      });
+      if(action.value !== state.subPage) {
+        return ({
+          ...state,
+          subPage: action.value,
+        });
+      }
+      return (state);
       
     default:
       return state;
