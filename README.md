@@ -2,6 +2,10 @@
 
 Yet Another React.js Starter-Pack - in progress 💎🛡 
 
+## What is this project about ?
+
+This is my own starterpack to deploy easy-to-maintain-and-easy-to-grow websites quickly
+
 ## Choices
 
 * The project uses **route.ts** to generate routes and access control.
@@ -13,9 +17,8 @@ Yet Another React.js Starter-Pack - in progress 💎🛡
 * The project is using **Create-React-App scripts** - it will be removed in later versions
 * The project is using **functions** to describe React's components - no classes are involved in .tsx
 
-## What is this project about ?
+## Guide
 
-This is my own starterpack to be able to deploy new websites quickly
 * Api calls can be made out of the box
 * Error pages (404, 403, Server unavailable) are handled out of the box
 * The login/logout and session logic are already here
