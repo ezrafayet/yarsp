@@ -1,6 +1,6 @@
 # yarsp
 
-Yet Another React.js Starter-Pack - in progress 💎🛡 
+Yet Another React.js Starter-Pack - ready soon 💎🛡 
 
 ## What is this project about ?
 
@@ -11,8 +11,8 @@ This is my own starterpack to deploy easy-to-maintain-and-easy-to-grow websites 
 * The project uses **route.ts** to generate routes and access control.
 * Do NOT rely on a front-strategy-only to grant access rights, your back **MUST** control it on each request.
 * The project is using **Typescript** - "prop-type" library is not needed
-* The project is using hooks (**useContext and useReduce**) to manage application-level state - Redux is not needed (another repo will implement it)
-* The project is using JavaScript **fetchs** for API calls. An abstract layer is used to normalize access. If you add a library (say Axios, unfetch or react-refetch) you should only need it in the abstraction file. 
+* The project is using **useContext and useReduce** to manage application-level state - Redux is not needed (another repo will implement it)
+* The project is using JavaScript **fetch** for API calls. An abstract layer is used to normalize access. If you add a library (say Axios, unfetch or react-refetch) you should only need it in the abstraction file. 
 * The project is using **Sass** - it will probably be replaced / completed by css-in-js
 * The project is using **Create-React-App scripts** - it will be removed in later versions
 * The project is using **functions** to describe React's components - no classes are involved in .tsx
@@ -95,7 +95,7 @@ The choice is yours:
 *[x] Build a window layout with statuses   
 *[x] Add a default route to handle mail/callback actions   
 *[ ] Get rid of the "fsevents" error + remove CRA  
-*[ ] Add Docker   
 *[x] Change the .env strategy  
+*[ ] Add Docker   
 *[ ] Add testing    
  
