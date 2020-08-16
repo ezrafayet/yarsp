@@ -2,20 +2,25 @@
 
 Yet Another React.js Starter-Pack - ready soon 💎🛡 
 
+React 16  
+React-dom 16  
+React-router-dom 5
+
 ## What is this project about ?
 
-This is my own starterpack to deploy easy-to-maintain-and-easy-to-grow websites quickly
+This is my own launcher-pack to deploy easy-to-maintain-and-easy-to-grow websites quickly
 
 ## Choices
 
 * The project uses **route.ts** to generate routes and access control.
-* Do NOT rely on a front-strategy-only to grant access rights, your back **MUST** control it on each request.
 * The project is using **Typescript** - "prop-type" library is not needed
-* The project is using **useContext and useReduce** to manage application-level state - Redux is not needed (another repo will implement it)
+* The project is using **useContext and useReduce** to manage application-level state - Redux is not needed in this project (another repo will implement it)
 * The project is using JavaScript **fetch** for API calls. An abstract layer is used to normalize access. If you add a library (say Axios, unfetch or react-refetch) you should only need it in the abstraction file. 
 * The project is using **Sass** - it will probably be replaced / completed by css-in-js
 * The project is using **Create-React-App scripts** - it will be removed in later versions
 * The project is using **functions** to describe React's components - no classes are involved in .tsx
+
+* NB: Do NOT rely on a front-strategy-only to grant access rights, your back **MUST** control it on each request.
 
 ## Guide
 
@@ -25,12 +30,6 @@ This is my own starterpack to deploy easy-to-maintain-and-easy-to-grow websites 
 * The routing logic is already here
 * A page layout is available out of the box (to help handling a basic page loading and page statuses)
 * A context is defined on the App level
-
-## Versions
-
-React 16  
-React-dom 16  
-React-router-dom 5
 
 ## Run localy (dev mode)
 
