@@ -1,9 +1,10 @@
+
 /**
  * This is the main file that holds the app's React logic
  * It's purpose here is to deliver content according to the rights of the user and the requested url
  */
-import React, {useContext, useEffect, useReducer, useState} from "react";
 import "./App.scss";
+import React, {useContext, useEffect, useReducer,} from "react";
 import {IAppContext, IAppProps, IAppSession} from "./componentsApp/state/IApp";
 import {AppContext, AppProvider} from "./componentsApp/context/AppContext";
 import {BrowserRouter as Router} from "react-router-dom";

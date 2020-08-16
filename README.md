@@ -94,8 +94,8 @@ The choice is yours:
 *[x] Build a layout page with statuses   
 *[x] Build a window layout with statuses   
 *[x] Add a default route to handle mail/callback actions   
-*[ ] Get rid of the "fsevents" error + remove CRA  
 *[x] Change the .env strategy  
-*[ ] Add Docker   
+*[ ] Remove CRA  
+*[ ] Add Docker for server hosting   
 *[ ] Add testing    
  
