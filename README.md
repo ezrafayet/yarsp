@@ -2,36 +2,32 @@
 
 Yet Another React.js Starter-Pack - in progress 💎🛡 
 
-## Choices and discussions
+## Choices
 
-* Works both with or without Docker (see "how to run" sections bellow)
-* React's components are all functional components (no class involved)
-* Routes and rights regarding access to those routes are generated from the array stored in routes.ts
-* NB: YOUR API ENDPOINTS/GATEWAY MUST ALWAYS CONTROLL ACCESS, DO NOT RELY ON A FRONT-ONLY ACCESS-CONTROL STRATEGY
-* No default export used
-* Typescript - so no "prop-type" library needed
-* A context hook is used to store application-level data, so Redux should not be used here
-* Fetch is used for API calls, but an abstract layer is used to normalize fetching. If you add a library (say Axios, unfetch or react-refetch by Heroku team) you'll only need it in one file. 
-* Sass - will probably be replaced by css in js
-* CRA scripts (start, build ...) - will be removed in later versions
-* There is no navbar, why ? there are too many different choices and situations
-* There are no animation, no style (appart from resetting all css and adding responsive breakpoints)
+* The project uses **route.ts** to generate routes and access control.
+* Do NOT rely on a front-strategy-only to grant access rights, your back **MUST** control it on each request.
+* The project is using **Typescript** - "prop-type" library is not needed
+* The project is using hooks (**useContext and useReduce**) to manage application-level state - Redux is not needed (another repo will implement it)
+* The project is using JavaScript **fetchs** for API calls. An abstract layer is used to normalize access. If you add a library (say Axios, unfetch or react-refetch) you should only need it in the abstraction file. 
+* The project is using **Sass** - it will probably be replaced / completed by css-in-js
+* The project is using **Create-React-App scripts** - it will be removed in later versions
+* The project is using **functions** to describe React's components - no classes are involved in .tsx
 
-## What is the difference with other starterpacks ?
+## What is this project about ?
 
-Here you have everything setup to quickly develop your app :
+This is my own starterpack to be able to deploy new websites quickly
 * Api calls can be made out of the box
 * Error pages (404, 403, Server unavailable) are handled out of the box
 * The login/logout and session logic are already here
 * The routing logic is already here
-* A page layout is available out of the box (to help you to handle page loading and page statuses)
+* A page layout is available out of the box (to help handling a basic page loading and page statuses)
 * A context is defined on the App level
 
-## Versions tested
+## Versions
 
 React 16  
 React-dom 16  
-React-router-dom 5  
+React-router-dom 5
 
 ## Run localy (dev mode)
 
@@ -49,49 +45,40 @@ It will:
 * Click on "go to /page", you will access the route /page, forbidden before
 * Click on "log out", you are logged out
 
-## If I refresh the page I loose the session
+**If I refresh the page I loose the session**
 
 This is the expected behaviour. As all single pages applications, you get your session from the server. In this case there is no server to hold the session. If so, you would not be logged out.
 
 ## Improvements
 
-Many improvements have to be made, some are in the todo bellow, others are here :
-* Check if it is a good practise to use a function inside useEffect and pass setState to it
-* Check if the routes couldn't be written better
-
-## .env strategy
-
-Environment vars can be set in the .env, they will be read when transpiling.
-You could create one .env.local, .env.production ... with react-scripts or by using "env-cmd -f ./.env.local npm run-script build", but this strategy is enough. 
+Many improvements have to be made, be my guest
 
 ## Notes
 
-* Fetch have been replaced by setTimeout, to mock a fetching, don't be surprised ...
+* There is no navbar, why ? there are too many different choices and situations
+* There are no animation, no style (appart from resetting all css and adding responsive breakpoints)
+* Fetch have been replaced by setTimeout to mock a fetching, don't be surprised ...
 Be sure to addapt this to your own strategy. Especially regarding :
-* Generating Routes could be improved (without passing a component)
-* Generating routes: should add a router to display the good landing page
+* Generating routes
 * Windows / menus strategy
-* Project is using typescript
-* Project is using sass
 
-## Run on docker (port 3000)
-
-* to come
-
-## Run on docker (server)
+## Run on docker
 
 * to come
 
 ## Build
 
-* npm run build:local for local build
-* npm run build:production for production
+* npm run build for local build
+
+**About the .env:**    
+
+The environment variables will be used only during the build of the app. You can check CRA documentation for a strategy using **.env.local**, **.env.production** ... 
 
 ## Deploy
 
 The choice is yours:
-* AWS S3 Buckets are very strong, easy and cheap to start to hosting a static website (paired with Route53 and CloudFront). Start by droping the files, you'll build a deploy-and-rollback strategy when needed, with buddy.io or aws pipes.
-* Host it on a server with or without Docker (AWS / Heroku / DigitalOcean allows both strategies)
+* **AWS S3** Buckets paired with Route53 and CloudFront are very strong, easy and cheap to host a static website with low traffic. Start by droping the files, you'll build a deploy-and-rollback strategy when needed, with **CodeBuild** or other platforms as **buddy.io**.
+* **Host it** on a server with or without Docker (AWS / Heroku / DigitalOcean allows both strategies)
 
 ## Good practises used
 
