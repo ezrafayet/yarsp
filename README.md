@@ -8,7 +8,7 @@ React-router-dom 5
 
 ## What is this project about ?
 
-This is my own launcher-pack to deploy easy-to-maintain-and-easy-to-grow websites quickly
+This is my own launcher-pack - will evolve
 
 ## Choices
 
@@ -94,6 +94,7 @@ The choice is yours:
 *[x] Build a window layout with statuses   
 *[x] Add a default route to handle mail/callback actions   
 *[x] Change the .env strategy  
+*[ ] Add a form handler    
 *[ ] Remove CRA  
 *[ ] Add Docker for server hosting   
 *[ ] Add testing    
