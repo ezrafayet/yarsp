@@ -1,7 +1,11 @@
+/**
+ * This is the class version of the api call
+ * @todo choose between the module vs class implementation
+ */
 export {AbstractApiCallV2};
 
-export type TMethod = 'GET' | 'PUT' | 'POST' | 'DELETE';
-export type TCredentials = 'include' | 'omit' | 'same-origin' | undefined;
+type TMethod = 'GET' | 'PUT' | 'POST' | 'DELETE';
+type TCredentials = 'include' | 'omit' | 'same-origin' | undefined;
 
 interface IRequest {
   

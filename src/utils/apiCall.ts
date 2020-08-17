@@ -1,4 +1,9 @@
-import {AbstractApiCallV2, TCredentials, TMethod} from "./AbstractApiCallV2";
+/**
+ * This goes with the class version of the api call
+ * @todo choose between the module vs class implementation
+ */
+import {AbstractApiCallV2} from "./AbstractApiCallV2";
+import {TCredentials, TMethod} from "./apiCallV2";
 
 export {apiCall};
 
