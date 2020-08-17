@@ -94,6 +94,7 @@ The choice is yours:
 *[x] Build a window layout with statuses   
 *[x] Add a default route to handle mail/callback actions   
 *[x] Change the .env strategy  
+*[ ] Simplify the api call strategy and add file support    
 *[ ] Add a form handler    
 *[ ] Remove CRA  
 *[ ] Add Docker for server hosting   

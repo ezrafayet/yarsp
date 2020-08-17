@@ -19,6 +19,7 @@ import {navigationReducer} from "./componentsApp/reducers/navigationReducer";
 import {initialNavigation} from "./componentsApp/state/initialNavigation";
 import {panelsReducer} from "./componentsApp/reducers/panelsReducer";
 import {initialPanels} from "./componentsApp/state/initialPanels";
+import {apiCall} from "../utils/apiCall";
 
 
 export {App};
