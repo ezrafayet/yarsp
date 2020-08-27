@@ -5,4 +5,5 @@ export {initialNavigation};
 const initialNavigation: IAppNavigation = {
   page: '',
   subPage: '',
+  scrolled: false,
 }

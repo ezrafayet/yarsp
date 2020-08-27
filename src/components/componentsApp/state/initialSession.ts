@@ -3,9 +3,13 @@ import {IAppSession} from "./IApp";
 export {initialSession};
 
 const initialSession: IAppSession = {
-  mode: 'unknown',
-  appStatus: 'loading',
-  userStatus: 'unknown',
-  language: 'EN',
-  theme: 'light',
+  app: {
+    mode: 'unknown',
+    appStatus: 'loading',
+    userStatus: 'unknown',
+  },
+  parameters: {
+    language: 'EN',
+    theme: 'light',
+  },
 }

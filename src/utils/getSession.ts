@@ -6,12 +6,16 @@ const getSession = async(): Promise<IAppSession> => {
   
   // fetch data here
   
-  return({
-    appStatus: 'loaded',
-    userStatus: 'unidentified',
-    mode: 'local',
-    language: 'FR',
-    theme: 'light',
+  return ({
+    app: {
+      appStatus: 'loaded',
+      userStatus: 'unidentified',
+      mode: 'local',
+    },
+    parameters: {
+      language: 'FR',
+      theme: 'light',
+    },
   });
   
 }

@@ -71,9 +71,9 @@ const App = (props: IAppProps) => {
  */
 function SwitchAppStatus(props: any) {
   
-  const appContext: IAppContext = useContext(AppContext) as IAppContext;
+  const appContext: IAppContext = useContext(AppContext) as IAppContext || {};
   
-  switch(appContext.appSession.appStatus) {
+  switch(appContext.appSession?.app?.appStatus) {
     
     case 'loading':
       return (<AppLevelLoading/>);
