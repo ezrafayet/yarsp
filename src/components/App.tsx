@@ -7,7 +7,7 @@ import React, {useContext, useEffect, useReducer,} from "react";
 import {IAppNavigation, IAppPanels, IAppProps, IAppSession} from "./componentsApp/state/IAppProps";
 import {AppContext, AppProvider, IAppContext} from "./componentsApp/context/AppContext";
 import {BrowserRouter as Router} from "react-router-dom";
-import {getSession} from "../utils/getSession";
+import {getSession} from "./componentsApp/fetchers/getSession";
 import {AppLevelLoading} from "./sharedComponents/pages/AppLevelLoading";
 import {Routing} from "./componentsApp/Routing";
 import {AppLevelForbidden403} from "./sharedComponents/pages/AppLevelForbidden403";
