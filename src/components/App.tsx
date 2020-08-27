@@ -2,9 +2,9 @@
  * This is the main file that holds the app's React logic
  * It's purpose here is to deliver content according to the rights of the user and the requested url
  */
-import "./App.scss";
+import "./componentsApp/style/App.scss";
 import React, {useContext, useEffect, useReducer,} from "react";
-import {IAppProps, IAppSession} from "./componentsApp/state/IApp";
+import {IAppNavigation, IAppPanels, IAppProps, IAppSession} from "./componentsApp/state/IApp";
 import {AppContext, AppProvider, IAppContext} from "./componentsApp/context/AppContext";
 import {BrowserRouter as Router} from "react-router-dom";
 import {getSession} from "../utils/getSession";
@@ -26,9 +26,9 @@ const App = (props: IAppProps) => {
   /**
    * App state
    */
-  const [appSession, dispatchSession] = useReducer(sessionReducer, initialSession);
-  const [appNavigation, dispatchNavigation] = useReducer(navigationReducer, initialNavigation);
-  const [appPanels, dispatchPanels] = useReducer(panelsReducer, initialPanels);
+  const [appSession, dispatchSession]: [IAppSession, (action: { type: string, value: any }) => void,] = useReducer(sessionReducer, initialSession);
+  const [appNavigation, dispatchNavigation]: [IAppNavigation, (action: { type: string, value: any }) => void,] = useReducer(navigationReducer, initialNavigation);
+  const [appPanels, dispatchPanels]: [IAppPanels, (action: { type: string, value: any }) => void,] = useReducer(panelsReducer, initialPanels);
   
   /**
    * Asks the server about current session

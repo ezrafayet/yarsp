@@ -10,9 +10,9 @@ interface IAppContext {
   appSession: IAppSession,
   appNavigation: IAppNavigation,
   appPanels: IAppPanels,
-  dispatchSession: Function,
-  dispatchNavigation: Function,
-  dispatchPanels: Function,
+  dispatchSession: (action: { type: string, value: any }) => void,
+  dispatchNavigation: (action: { type: string, value: any }) => void,
+  dispatchPanels: (action: { type: string, value: any }) => void,
 }
 
 const AppContext = React.createContext({});

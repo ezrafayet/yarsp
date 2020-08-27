@@ -3,7 +3,7 @@ import {IAppPanels} from "../state/IApp";
 export {panelsReducer};
 
 const panelsReducer = (state: IAppPanels, action: {
-  type: "OPEN_WINDOW" | "CLOSE_WINDOW" | "SET_SESSION" | "DELETE_SESSION",
+  type: string,
   value: any,
 }) => {
   
@@ -18,9 +18,9 @@ const panelsReducer = (state: IAppPanels, action: {
       return ({
         ...state,
       });
-    
+  
     default:
-      return state;
+      throw new Error(`Type ${action.type} is not defined in panelsReducer`);
   }
   
 }

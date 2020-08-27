@@ -3,7 +3,7 @@ import {IAppNavigation} from "../state/IApp";
 export {navigationReducer};
 
 const navigationReducer = (state: IAppNavigation, action: {
-  type: "SET_PAGE" | "SET_SUB_PAGE",
+  type: string,
   value: any,
 }) => {
   
@@ -26,9 +26,9 @@ const navigationReducer = (state: IAppNavigation, action: {
         });
       }
       return (state);
-      
+  
     default:
-      return state;
+      throw new Error(`Type ${action.type} is not defined in navigationReducer`);
   }
   
 }

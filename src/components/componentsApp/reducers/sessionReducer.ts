@@ -6,7 +6,7 @@ export {sessionReducer};
 export type {ISetSessionAction}
 
 interface ISetSessionAction {
-  type: "SET_SESSION" | "INITIALIZE_SESSION" | "SET_LANGUAGE";
+  type: string;
   value: IAppSession | string | null;
 }
 
@@ -36,9 +36,9 @@ const sessionReducer = (state: IAppSession, action: ISetSessionAction): IAppSess
         ...state,
         language: action.value as "FR"|"EN",
       });
-
+  
     default:
-      return state;
+      throw new Error(`Type ${action.type} is not defined in sessionReducer`);
   }
 
 }
