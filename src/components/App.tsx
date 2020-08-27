@@ -4,7 +4,6 @@
  */
 import "./componentsApp/style/App.scss";
 import React, {useContext, useEffect, useReducer,} from "react";
-import {IAppNavigation, IAppPanels, IAppProps, IAppSession} from "./componentsApp/state/IAppProps";
 import {AppContext, AppProvider, IAppContext} from "./componentsApp/context/AppContext";
 import {BrowserRouter as Router} from "react-router-dom";
 import {getSession} from "./componentsApp/fetchers/getSession";
@@ -18,6 +17,11 @@ import {navigationReducer} from "./componentsApp/reducers/navigationReducer";
 import {initialNavigation} from "./componentsApp/state/initialNavigation";
 import {panelsReducer} from "./componentsApp/reducers/panelsReducer";
 import {initialPanels} from "./componentsApp/state/initialPanels";
+import {IAppProps} from "./componentsApp/state/IAppProps";
+import {IAppSession} from "./componentsApp/state/IAppSession";
+import {IAppNavigation} from "./componentsApp/state/IAppNavigation";
+import {IAppPanels} from "./componentsApp/state/IAppPanel";
+import debounceScroll from "../utils/debounceScroll";
 
 export {App};
 
@@ -38,6 +42,36 @@ const App = (props: IAppProps) => {
       const session: IAppSession = await getSession();
       dispatchSession({type: "SET_SESSION", value: session});
     })();
+  }, []);
+  
+  /** ----- Add the escape key listener */
+  useEffect(() => {
+    const onPressKeyFunction = (e: any) => {
+      if(e.key === 'Escape') {
+        dispatchPanels({type: "CLOSE_ALL", value: null});
+      }
+    };
+    document.addEventListener('keydown', onPressKeyFunction);
+    return () => {
+      document.removeEventListener("keydown", onPressKeyFunction);
+    }
+  }, []);
+  
+  /** ----- Add the scroll listener */
+  /** -- Should be put only on concerned pages */
+  useEffect(() => {
+    const onScrollFunction = debounceScroll(() => {
+      if(window.scrollY > 40 && !appNavigation.scrolled) {
+        dispatchNavigation({type: "SET_SCROLL", value: true});
+      }
+      if(window.scrollY < 40 && appNavigation.scrolled) {
+        dispatchNavigation({type: "SET_SCROLL", value: false});
+      }
+    });
+    window.addEventListener('scroll', onScrollFunction);
+    return () => {
+      window.removeEventListener("scroll", onScrollFunction);
+    }
   }, []);
   
   /**

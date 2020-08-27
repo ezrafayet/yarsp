@@ -2,10 +2,6 @@
 
 Yet Another React.js Starter-Pack - ready soon 💎🛡 
 
-React 16  
-React-dom 16  
-React-router-dom 5
-
 ## What is this project about ?
 
 This is my own launcher-pack - will evolve
@@ -94,8 +90,8 @@ The choice is yours:
 *[x] Build a window layout with statuses   
 *[x] Add a default route to handle mail/callback actions   
 *[x] Change the .env strategy  
+*[x] Add a form handler    
 *[ ] Simplify the api call strategy and add file support    
-*[ ] Add a form handler    
 *[ ] Remove CRA  
 *[ ] Add Docker for server hosting   
 *[ ] Add testing    
