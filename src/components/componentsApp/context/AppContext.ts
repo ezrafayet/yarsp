@@ -1,5 +1,7 @@
 import React from "react";
-import {IAppNavigation, IAppPanels, IAppSession} from "../state/IAppProps";
+import {IAppSession} from "../state/IAppSession";
+import {IAppNavigation} from "../state/IAppNavigation";
+import {IAppPanels} from "../state/IAppPanel";
 
 export {AppProvider, AppContext, AppConsumer};
 

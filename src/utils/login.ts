@@ -20,7 +20,15 @@ const login = async(id: string, password: string): Promise<ILoginAnswer> => {
       status: "success",
       data: {
         session: {
-          userStatus: 'identified',
+          app: {
+            userStatus: 'identified',
+            appStatus: 'loaded',
+            mode: 'local',
+          },
+          parameters: {
+            language: 'french',
+            theme: 'light'
+          }
         }
       }
     });

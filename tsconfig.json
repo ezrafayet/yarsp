@@ -3,8 +3,7 @@
     "target": "es5",
     "lib": [
       "dom",
-      "dom.iterable",
-      "esNext"
+      "dom.iterable"
     ],
     "allowJs": true,
     "skipLibCheck": true,
