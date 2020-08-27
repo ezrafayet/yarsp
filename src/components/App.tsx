@@ -4,7 +4,7 @@
  */
 import "./componentsApp/style/App.scss";
 import React, {useContext, useEffect, useReducer,} from "react";
-import {IAppNavigation, IAppPanels, IAppProps, IAppSession} from "./componentsApp/state/IApp";
+import {IAppNavigation, IAppPanels, IAppProps, IAppSession} from "./componentsApp/state/IAppProps";
 import {AppContext, AppProvider, IAppContext} from "./componentsApp/context/AppContext";
 import {BrowserRouter as Router} from "react-router-dom";
 import {getSession} from "../utils/getSession";

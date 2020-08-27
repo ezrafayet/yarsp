@@ -1,4 +1,5 @@
-import {IAppPanels} from "../state/IApp";
+import {IAppPanels} from "../state/IAppPanel";
+import {initialPanels} from "../state/initialPanels";
 
 export {panelsReducer};
 
@@ -12,11 +13,21 @@ const panelsReducer = (state: IAppPanels, action: {
     case 'OPEN_WINDOW':
       return ({
         ...state,
+        //todo
       });
     
     case 'CLOSE_WINDOW':
       return ({
         ...state,
+        // todo
+      });
+      
+    // a lot todo here
+  
+    case 'CLOSE_ALL':
+      return ({
+        ...state,
+        ...initialPanels,
       });
   
     default:

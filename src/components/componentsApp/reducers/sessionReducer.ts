@@ -1,9 +1,9 @@
-import {IAppSession} from "../state/IApp";
 import {initialSession} from "../state/initialSession";
+import {IAppSession} from "../state/IAppSession";
 
 export {sessionReducer};
 
-export type {ISetSessionAction}
+export type {ISetSessionAction};
 
 interface ISetSessionAction {
   type: string;
@@ -24,18 +24,33 @@ const sessionReducer = (state: IAppSession, action: ISetSessionAction): IAppSess
       return ({
         ...state,
         ...initialSession,
-        mode: state.mode,
-        appStatus: 'loaded',
-        userStatus: 'unidentified',
-        language: state.language,
-        theme: state.theme,
+        app: {
+          ...state.app,
+          ...initialSession.app,
+          mode: state.app.mode,
+          appStatus: 'loaded',
+          userStatus: 'unidentified',
+        },
+        parameters: {
+          ...state.parameters,
+          ...initialSession.parameters,
+          language: state.parameters.language,
+          theme: state.parameters.theme,
+        },
       });
   
     case 'SET_LANGUAGE':
       return ({
         ...state,
-        language: action.value as "FR"|"EN",
+        parameters: {
+          ...state.parameters,
+          language: action.value as "FR"|"EN",
+        }
       });
+  
+    /** Deprecated */
+    case "SET_SESSION_ERROR":
+      return state;
   
     default:
       throw new Error(`Type ${action.type} is not defined in sessionReducer`);

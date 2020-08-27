@@ -1,7 +1,7 @@
 
 import React, {useContext} from "react";
 import {ILoginAnswer, login} from "../../utils/login";
-import {IAppContext} from "../componentsApp/state/IApp";
+import {IAppContext} from "../componentsApp/state/IAppProps";
 import {AppContext} from "../componentsApp/context/AppContext";
 
 export {LandingPage};

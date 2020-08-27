@@ -1,4 +1,4 @@
-import {IAppPanels} from "./IApp";
+import {IAppPanels} from "./IAppPanel";
 
 export {initialPanels};
 
@@ -24,7 +24,7 @@ const initialPanels: IAppPanels = {
   },
   notifications: {
     isWindowNotificationVisible: false,
-    notificationText: "string",
+    notificationText: "",
     notificationType: "information",
     notificationTimer: null,
   }

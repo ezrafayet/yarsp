@@ -1,4 +1,4 @@
-import {IAppNavigation} from "./IApp";
+import {IAppNavigation} from "./IAppNavigation";
 
 export {initialNavigation};
 

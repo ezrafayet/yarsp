@@ -1,4 +1,4 @@
-import {IAppSession} from "../components/componentsApp/state/IApp";
+import {IAppSession} from "../components/componentsApp/state/IAppProps";
 
 export {getSession};
 
