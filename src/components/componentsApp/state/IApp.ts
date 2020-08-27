@@ -1,4 +1,4 @@
-export type {IAppProps, IAppContext, IAppSession, IAppNavigation, IAppPanels,};
+export type {IAppProps, IAppSession, IAppNavigation, IAppPanels,};
 
 interface IAppSession {
   
@@ -19,16 +19,6 @@ interface IAppPanels {
   
   window: any;
   menu: any;
-}
-
-interface IAppContext {
-  
-  appSession: IAppSession,
-  appNavigation: IAppNavigation,
-  appPanels: IAppPanels,
-  dispatchSession: Function,
-  dispatchNavigation: Function,
-  dispatchPanels: Function,
 }
 
 interface IAppProps {

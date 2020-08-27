@@ -20,8 +20,6 @@ const AbstractRoute = (props: IAbstractRoute) => {
   
   const appContext: IAppContext = useContext(AppContext) as IAppContext;
   
-  const Component = props.component;
-  
   /**
    * Checks if user is allowed to access the page
    */
@@ -33,5 +31,5 @@ const AbstractRoute = (props: IAbstractRoute) => {
   }
   
   return (<Route exact={props.exact} path={props.path}
-                 render={(componentProps) => <Component {...componentProps} page={props.page}/>}/>);
+                 render={(componentProps) => <props.component {...componentProps} page={props.page}/>}/>);
 }

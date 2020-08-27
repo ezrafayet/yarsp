@@ -1,12 +1,11 @@
-
 /**
  * This is the main file that holds the app's React logic
  * It's purpose here is to deliver content according to the rights of the user and the requested url
  */
 import "./App.scss";
 import React, {useContext, useEffect, useReducer,} from "react";
-import {IAppContext, IAppProps, IAppSession} from "./componentsApp/state/IApp";
-import {AppContext, AppProvider} from "./componentsApp/context/AppContext";
+import {IAppProps, IAppSession} from "./componentsApp/state/IApp";
+import {AppContext, AppProvider, IAppContext} from "./componentsApp/context/AppContext";
 import {BrowserRouter as Router} from "react-router-dom";
 import {getSession} from "../utils/getSession";
 import {AppLevelLoading} from "./sharedComponents/pages/AppLevelLoading";
@@ -19,8 +18,6 @@ import {navigationReducer} from "./componentsApp/reducers/navigationReducer";
 import {initialNavigation} from "./componentsApp/state/initialNavigation";
 import {panelsReducer} from "./componentsApp/reducers/panelsReducer";
 import {initialPanels} from "./componentsApp/state/initialPanels";
-import {apiCall} from "../utils/apiCall";
-
 
 export {App};
 

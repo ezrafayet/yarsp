@@ -24,7 +24,7 @@ interface IApiCall extends IRequest {
   uri: string;
 }
 
-const checkIntegrity = (args: {uri: string,}) => {
+const checkIfActionCanBePerformed = (args: {uri: string,}) => {
   try {
   
     if(!args.uri) {
@@ -51,10 +51,14 @@ const checkIntegrity = (args: {uri: string,}) => {
   }
 }
 
+/**
+ * This function handles all API calls of the application.
+ * If you use axios, unfectch or other this should be the only function to modify.
+ */
 const apiCallV2 = async(args: IApiCall) => {
   try {
   
-    checkIntegrity({uri: args.uri});
+    checkIfActionCanBePerformed({uri: args.uri});
     
     const url: string = `${process.env.REACT_APP_GATEWAY_URL}${args.uri}`;
     
@@ -141,10 +145,10 @@ const apiCallPost = async(args: { uri: string, body?: any, headers?: any, creden
   }
 }
 
-const apiCalPostFile = async() => {
+const apiCalPostFile = async(additionalInfo: any) => {
   try {
   
-    // checkIntegrity({uri: args.uri});
+    // isModuleReady({uri: args.uri});
   
     // todo
     
