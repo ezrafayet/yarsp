@@ -2,9 +2,9 @@
 export default function debounce(func: Function, wait: number = 12, immediate: boolean = true) {
     let timeout: any;
     return function () {
-      //@ts-ignore
-      let context = this, args = arguments;
-      let later = function () {
+      // @ts-ignore
+      let context: any = this, args = arguments;
+      let later: any = function () {
         timeout = null;
         if (!immediate) func.apply(context, args);
       };
