@@ -16,7 +16,7 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/adzaria/kuboframe.co/issues"
+    "url": ""
   },
   "devDependencies": {
     "@types/react": "^16.9.43",
