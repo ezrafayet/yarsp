@@ -1,0 +1,24 @@
+
+.hide-on-smartphones {
+  @include smartphones-only {
+    display: none;
+  }
+}
+
+.hide-on-tablets-and-smartphones {
+  @include smartphones-and-tablets-only {
+    display: none;
+  }
+}
+
+.hide-on-tablets-and-computers {
+  @include tablets-and-bigger-only {
+    display: none;
+  }
+}
+
+.hide-on-computers {
+  @include laptops-and-bigger-only {
+    display: none;
+  }
+}
