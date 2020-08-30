@@ -3,8 +3,13 @@ import {initialPanels} from "../state/initialPanels";
 
 export {panelsReducer};
 
+export type TPanelsReducers =
+  "OPEN_WINDOW" |
+  "CLOSE_WINDOW" |
+  "CLOSE_ALL";
+
 const panelsReducer = (state: IAppPanels, action: {
-  type: string,
+  type: TPanelsReducers,
   value: any,
 }) => {
   

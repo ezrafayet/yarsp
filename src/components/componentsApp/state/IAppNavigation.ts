@@ -4,5 +4,4 @@ interface IAppNavigation {
   
   page: string;
   subPage: string;
-  scrolled: boolean,
 }

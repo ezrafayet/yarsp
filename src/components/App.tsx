@@ -11,11 +11,11 @@ import {AppLevelLoading} from "./sharedComponents/pages/AppLevelLoading";
 import {Routing} from "./componentsApp/Routing";
 import {AppLevelForbidden403} from "./sharedComponents/pages/AppLevelForbidden403";
 import {AppLevelError} from "./sharedComponents/pages/AppLevelError";
-import {sessionReducer} from "./componentsApp/reducers/sessionReducer";
+import {sessionReducer, TSessionReducers} from "./componentsApp/reducers/sessionReducer";
 import {initialSession} from "./componentsApp/state/initialSession";
-import {navigationReducer} from "./componentsApp/reducers/navigationReducer";
+import {navigationReducer, TNavigationReducers} from "./componentsApp/reducers/navigationReducer";
 import {initialNavigation} from "./componentsApp/state/initialNavigation";
-import {panelsReducer} from "./componentsApp/reducers/panelsReducer";
+import {panelsReducer, TPanelsReducers} from "./componentsApp/reducers/panelsReducer";
 import {initialPanels} from "./componentsApp/state/initialPanels";
 import {IAppProps} from "./componentsApp/state/IAppProps";
 import {IAppSession} from "./componentsApp/state/IAppSession";
@@ -30,9 +30,9 @@ const App = (props: IAppProps) => {
   /**
    * App state
    */
-  const [appSession, dispatchSession]: [IAppSession, (action: { type: string, value: any }) => void,] = useReducer(sessionReducer, initialSession);
-  const [appNavigation, dispatchNavigation]: [IAppNavigation, (action: { type: string, value: any }) => void,] = useReducer(navigationReducer, initialNavigation);
-  const [appPanels, dispatchPanels]: [IAppPanels, (action: { type: string, value: any }) => void,] = useReducer(panelsReducer, initialPanels);
+  const [appSession, dispatchSession]: [IAppSession, (action: { type: TSessionReducers, value: any }) => void,] = useReducer(sessionReducer, initialSession);
+  const [appNavigation, dispatchNavigation]: [IAppNavigation, (action: { type: TNavigationReducers, value: any }) => void,] = useReducer(navigationReducer, initialNavigation);
+  const [appPanels, dispatchPanels]: [IAppPanels, (action: { type: TPanelsReducers, value: any }) => void,] = useReducer(panelsReducer, initialPanels);
   
   /**
    * Asks the server about current session
@@ -54,23 +54,6 @@ const App = (props: IAppProps) => {
     document.addEventListener('keydown', onPressKeyFunction);
     return () => {
       document.removeEventListener("keydown", onPressKeyFunction);
-    }
-  }, []);
-  
-  /** ----- Add the scroll listener */
-  /** -- Should be put only on concerned pages */
-  useEffect(() => {
-    const onScrollFunction = debounceScroll(() => {
-      if(window.scrollY > 40 && !appNavigation.scrolled) {
-        dispatchNavigation({type: "SET_SCROLL", value: true});
-      }
-      if(window.scrollY < 40 && appNavigation.scrolled) {
-        dispatchNavigation({type: "SET_SCROLL", value: false});
-      }
-    });
-    window.addEventListener('scroll', onScrollFunction);
-    return () => {
-      window.removeEventListener("scroll", onScrollFunction);
     }
   }, []);
   

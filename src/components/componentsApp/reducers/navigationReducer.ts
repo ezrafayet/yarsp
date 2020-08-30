@@ -2,8 +2,12 @@ import {IAppNavigation} from "../state/IAppNavigation";
 
 export {navigationReducer};
 
+export type TNavigationReducers =
+  "SET_PAGE" |
+  "SET_SUB_PAGE";
+
 const navigationReducer = (state: IAppNavigation, action: {
-  type: string,
+  type: TNavigationReducers,
   value: any,
 }) => {
   
@@ -26,12 +30,6 @@ const navigationReducer = (state: IAppNavigation, action: {
         });
       }
       return (state);
-  
-    case 'SET_SCROLL':
-      return ({
-        ...state,
-        scrolled: action.value,
-      });
   
     default:
       throw new Error(`Type ${action.type} is not defined in navigationReducer`);

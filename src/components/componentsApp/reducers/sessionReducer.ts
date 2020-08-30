@@ -3,10 +3,14 @@ import {IAppSession} from "../state/IAppSession";
 
 export {sessionReducer};
 
-export type {ISetSessionAction};
+export type TSessionReducers =
+  "SET_SESSION" |
+  "INITIALIZE_SESSION" |
+  "SET_LANGUAGE" |
+  "SET_SESSION_ERROR";
 
-interface ISetSessionAction {
-  type: string;
+export interface ISetSessionAction {
+  type: TSessionReducers;
   value: IAppSession | string | null;
 }
 
@@ -48,7 +52,6 @@ const sessionReducer = (state: IAppSession, action: ISetSessionAction): IAppSess
         }
       });
   
-    /** Deprecated */
     case "SET_SESSION_ERROR":
       return state;
   
