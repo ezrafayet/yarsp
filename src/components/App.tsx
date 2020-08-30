@@ -22,6 +22,7 @@ import {IAppSession} from "./componentsApp/state/IAppSession";
 import {IAppNavigation} from "./componentsApp/state/IAppNavigation";
 import {IAppPanels} from "./componentsApp/state/IAppPanel";
 import debounceScroll from "../utils/debounceScroll";
+import {escapeKeyListener} from "../utils/listeners/escapeKeyListener";
 
 export {App};
 
@@ -45,17 +46,10 @@ const App = (props: IAppProps) => {
   }, []);
   
   /** ----- Add the escape key listener */
-  useEffect(() => {
-    const onPressKeyFunction = (e: any) => {
-      if(e.key === 'Escape') {
-        dispatchPanels({type: "CLOSE_ALL", value: null});
-      }
-    };
-    document.addEventListener('keydown', onPressKeyFunction);
-    return () => {
-      document.removeEventListener("keydown", onPressKeyFunction);
-    }
-  }, []);
+  useEffect(escapeKeyListener(() => {
+    // Should prevent state update if all windows are already closed
+    dispatchPanels({type: "CLOSE_ALL", value: null});
+  }), []);
   
   /**
    * Defines the context (will be made available in any other component)
