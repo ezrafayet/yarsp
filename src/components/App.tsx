@@ -1,14 +1,10 @@
-/**
- * This is the main file that holds the app's React logic
- * It's purpose here is to deliver content according to the rights of the user and the requested url
- */
 import "./componentsApp/style/App.scss";
 import React, {useContext, useEffect, useReducer,} from "react";
 import {AppContext, AppProvider, IAppContext} from "./componentsApp/context/AppContext";
 import {BrowserRouter as Router} from "react-router-dom";
 import {getSession} from "./componentsApp/fetchers/getSession";
 import {AppLevelLoading} from "./sharedComponents/pages/AppLevelLoading";
-import {Routing} from "./componentsApp/Routing";
+import {Routing} from "./componentsApp/componentsSwitchAppStatus/Routing";
 import {AppLevelForbidden403} from "./sharedComponents/pages/AppLevelForbidden403";
 import {AppLevelError} from "./sharedComponents/pages/AppLevelError";
 import {sessionReducer, TSessionReducers} from "./componentsApp/reducers/sessionReducer";
@@ -23,20 +19,21 @@ import {IAppNavigation} from "./componentsApp/state/IAppNavigation";
 import {IAppPanels} from "./componentsApp/state/IAppPanel";
 import debounceScroll from "../utils/debounceScroll";
 import {escapeKeyListener} from "../utils/listeners/escapeKeyListener";
+import {SwitchAppStatus} from "./componentsApp/SwitchAppStatus";
 
 export {App};
 
 const App = (props: IAppProps) => {
   
   /**
-   * App state
+   * ----- App-state related hooks
    */
   const [appSession, dispatchSession]: [IAppSession, (action: { type: TSessionReducers, value: any }) => void,] = useReducer(sessionReducer, initialSession);
   const [appNavigation, dispatchNavigation]: [IAppNavigation, (action: { type: TNavigationReducers, value: any }) => void,] = useReducer(navigationReducer, initialNavigation);
   const [appPanels, dispatchPanels]: [IAppPanels, (action: { type: TPanelsReducers, value: any }) => void,] = useReducer(panelsReducer, initialPanels);
   
   /**
-   * Asks the server about current session
+   * ----- Asks the server about current session
    */
   useEffect(() => {
     (async() => {
@@ -46,14 +43,9 @@ const App = (props: IAppProps) => {
   }, []);
   
   /** ----- Add the escape key listener */
-  useEffect(escapeKeyListener(() => {
-    // Should prevent state update if all windows are already closed
-    dispatchPanels({type: "CLOSE_ALL", value: null});
-  }), []);
+  useEffect(escapeKeyListener(() => {dispatchPanels({type: "CLOSE_ALL", value: null});}), []);
   
-  /**
-   * Defines the context (will be made available in any other component)
-   */
+  /** ----- Defines the context */
   let contextValue: IAppContext = {
     appSession: appSession,
     appNavigation: appNavigation,
@@ -63,41 +55,13 @@ const App = (props: IAppProps) => {
     dispatchPanels: dispatchPanels,
   };
   
+  /**
+   * Render the App
+   */
   return (<AppProvider value={contextValue}>
     <Router>
-      <SwitchAppStatus/>
+      <SwitchAppStatus appStatus={appSession.app.appStatus}/>
     </Router>
   </AppProvider>);
   
-}
-
-/**
- * Displays the App
- *  - <AppProvider/> provides the context to the App
- *  - <Router/> makes client routing available from anywhere
- * Handles app-level scenarios:
- *  - Server is not responding to the session API call ('error')
- *  - User has been IP blocked or banned ('forbidden')
- *  - Session is set (user can be identified or unidentified) ('success')
- */
-function SwitchAppStatus(props: any) {
-  
-  const appContext: IAppContext = useContext(AppContext) as IAppContext || {};
-  
-  switch(appContext.appSession?.app?.appStatus) {
-    
-    case 'loading':
-      return (<AppLevelLoading/>);
-    
-    case 'loaded':
-      return (<Routing/>);
-    
-    case 'forbidden':
-      return (<AppLevelForbidden403/>);
-    
-    case 'error':
-    
-    default:
-      return (<AppLevelError/>);
-  }
 }
