@@ -1,12 +1,8 @@
 import "./componentsApp/style/App.scss";
-import React, {useContext, useEffect, useReducer,} from "react";
-import {AppContext, AppProvider, IAppContext} from "./componentsApp/context/AppContext";
+import React, {useEffect, useReducer,} from "react";
+import {AppProvider, IAppContext} from "./componentsApp/context/AppContext";
 import {BrowserRouter as Router} from "react-router-dom";
 import {getSession} from "./componentsApp/fetchers/getSession";
-import {AppLevelLoading} from "./sharedComponents/pages/AppLevelLoading";
-import {Routing} from "./componentsApp/componentsSwitchAppStatus/Routing";
-import {AppLevelForbidden403} from "./sharedComponents/pages/AppLevelForbidden403";
-import {AppLevelError} from "./sharedComponents/pages/AppLevelError";
 import {sessionReducer, TSessionReducers} from "./componentsApp/reducers/sessionReducer";
 import {initialSession} from "./componentsApp/state/initialSession";
 import {navigationReducer, TNavigationReducers} from "./componentsApp/reducers/navigationReducer";
@@ -17,7 +13,6 @@ import {IAppProps} from "./componentsApp/state/IAppProps";
 import {IAppSession} from "./componentsApp/state/IAppSession";
 import {IAppNavigation} from "./componentsApp/state/IAppNavigation";
 import {IAppPanels} from "./componentsApp/state/IAppPanel";
-import debounceScroll from "../utils/debounceScroll";
 import {escapeKeyListener} from "../utils/listeners/escapeKeyListener";
 import {SwitchAppStatus} from "./componentsApp/SwitchAppStatus";
 
