@@ -32,6 +32,7 @@ const App = (props: IAppProps) => {
    */
   useEffect(() => {
     (async() => {
+      // This is a place-holder for the demo, fetch real session-related-data here.
       const session: IAppSession = await getSession();
       dispatchSession({type: "SET_SESSION", value: session});
     })();

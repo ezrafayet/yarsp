@@ -22,6 +22,10 @@ const sessionReducer = (state: IAppSession, action: ISetSessionAction): IAppSess
       return ({
         ...state,
         ...action.value as IAppSession,
+        app: {
+          ...state.app,
+          appStatus: "loaded",
+        }
       });
 
     case 'INITIALIZE_SESSION':
