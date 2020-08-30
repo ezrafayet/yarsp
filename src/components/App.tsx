@@ -13,7 +13,7 @@ import {IAppProps} from "./componentsApp/state/IAppProps";
 import {IAppSession} from "./componentsApp/state/IAppSession";
 import {IAppNavigation} from "./componentsApp/state/IAppNavigation";
 import {IAppPanels} from "./componentsApp/state/IAppPanel";
-import {escapeKeyListener} from "../listeners/escapeKeyListener";
+import {escapeKeyListener} from "../utils/dom/listeners/escapeKeyListener";
 import {SwitchAppStatus} from "./componentsApp/SwitchAppStatus";
 
 export {App};
