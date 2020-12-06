@@ -1,1 +1,0 @@
-The code for useForm has been replaced by my own repo, check hook-for-react-use-form

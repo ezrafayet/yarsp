@@ -1,4 +1,3 @@
-
 export {devLog};
 
 const devLog = (...input: any) => {

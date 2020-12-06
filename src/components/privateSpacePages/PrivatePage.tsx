@@ -1,6 +1,4 @@
-
 import React, {useContext} from "react";
-import {logout, TLogoutStatus} from "../../utils/logout";
 import {AppContext, IAppContext} from "../componentsApp/context/AppContext";
 
 export {PrivatePage};
@@ -13,8 +11,17 @@ const PrivatePage = (props: any) => {
   const clickLogoutHandler = async (e: any) => {
     
     e.preventDefault();
+
+    const logout = () => {
+      try {
+        // Fetch logout
+        return "success";
+      } catch(error) {
+        throw error;
+      }
+    }
     
-    const logoutStatus: TLogoutStatus = await logout();
+    const logoutStatus: any = await logout();
     
     if(logoutStatus === "success") {
       appContext.dispatchSession({type: "INITIALIZE_SESSION", value: null});
@@ -25,9 +32,7 @@ const PrivatePage = (props: any) => {
   return(<>
     Yet another private page
     <br/><br/>
-    <button onClick={async (e: any) => {
-      await clickLogoutHandler(e);
-    }}>
+    <button onClick={(e: any) => clickLogoutHandler(e)}>
       Logout
     </button>
   </>);

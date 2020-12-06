@@ -1,30 +1,28 @@
 # yarsp
 
-Yet Another React.js Starter-Pack - ready soon 💎🛡 
+Yet Another React.js Starter-Pack 💎🛡 
 
 ## What is this project about ?
 
-This is my own launcher-pack - will evolve
+This is my own launcher-pack - it will evolve when I have time
 
 ## Choices
 
 * The project uses **route.ts** to generate routes and access control.
 * The project is using **Typescript** - "prop-type" library is not needed
 * The project is using **useContext and useReduce** to manage application-level state - Redux is not needed in this project (another repo will implement it)
-* The project is using JavaScript **fetch** for API calls. An abstract layer is used to normalize access. If you add a library (say Axios, unfetch or react-refetch) you should only need it in the abstraction file. 
 * The project is using **Sass** - it will probably be replaced / completed by css-in-js
 * The project is using **Create-React-App scripts** - it will be removed in later versions
-* The project is using **functions** to describe React's components - no classes are involved in .tsx
+* The project is using **functions** to describe React's components - no classes are involved.
 
 * NB: Do NOT rely on a front-strategy-only to grant access rights, your back **MUST** control it on each request.
 
 ## Guide
 
-* Api calls can be made out of the box
 * Error pages (404, 403, Server unavailable) are handled out of the box
-* The login/logout and session logic are already here
-* The routing logic is already here
-* A page layout is available out of the box (to help handling a basic page loading and page statuses)
+* The login/logout and session logic are there out of the box
+* The routing logic is available out of the box
+* A page layout is available out of the box
 * A context is defined on the App level
 
 ## Run localy (dev mode)
@@ -47,22 +45,11 @@ It will:
 
 This is the expected behaviour. As all single pages applications, you get your session from the server. In this case there is no server to hold the session. If so, you would not be logged out.
 
-## Improvements
-
-Many improvements have to be made, be my guest
-
 ## Notes
 
-* There is no navbar, why ? there are too many different choices and situations
+* There is no navbar,
 * There are no animation, no style (appart from resetting all css and adding responsive breakpoints)
 * Fetch have been replaced by setTimeout to mock a fetching, don't be surprised ...
-Be sure to addapt this to your own strategy. Especially regarding :
-* Generating routes
-* Windows / menus strategy
-
-## Run on docker
-
-* to come
 
 ## Build
 
@@ -80,19 +67,8 @@ The choice is yours:
 
 ## Good practises used
 
-## TODO
-*[x] Setup React  
-*[x] Setup the router   
-*[x] Add abstract fetch routes   
-*[x] Add breakpoints in scss
-*[x] Build a basic session/login/logout mockup   
-*[x] Build a layout page with statuses   
-*[x] Build a window layout with statuses   
-*[x] Add a default route to handle mail/callback actions   
-*[x] Change the .env strategy  
-*[x] Add a form handler    
-*[ ] Simplify the api call strategy and add file support    
+## TODO 
 *[ ] Remove CRA  
 *[ ] Add Docker for server hosting   
-*[ ] Add testing    
+*[ ] Add tests    
  

@@ -1,6 +1,4 @@
-
 import React, {useContext} from "react";
-import {ILoginAnswer, login} from "../../utils/login";
 import {AppContext, IAppContext} from "../componentsApp/context/AppContext";
 
 export {LandingPage};
@@ -12,8 +10,32 @@ const LandingPage = (props: any) => {
   const clickLoginHandler = async (e: any) => {
     
     e.preventDefault();
+
+    const login = async(id: string, password: string): Promise<any> => {
+      try {
+        // Login here
+        return ({
+          status: "success",
+          data: {
+            session: {
+              app: {
+                userStatus: 'identified',
+                appStatus: 'loaded',
+                mode: 'local',
+              },
+              parameters: {
+                language: 'french',
+                theme: 'light'
+              }
+            }
+          }
+        });
+      } catch (error) {
+        throw error;
+      }
+    }
     
-    const loginAnswer: ILoginAnswer = await login("id", "1234");
+    const loginAnswer: any = await login("id", "1234");
     
     switch(loginAnswer.status) {
       
@@ -38,7 +60,7 @@ const LandingPage = (props: any) => {
     
     <br/><br/>
     
-    <button onClick={clickLoginHandler}>Login</button>
+    <button onClick={(e) => clickLoginHandler(e)}>Login</button>
     
   </>);
   

@@ -1,4 +1,3 @@
-
 export {scrollUp};
 
 const scrollUp = () => {
