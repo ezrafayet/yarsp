@@ -38,8 +38,8 @@ const routes: IRoutes = {
 routes.public.push({exact: true, path: '/', page: 'LandingPage', component: LandingPage});
 
 // --------------------------- Private routes
-routes.public.push({exact: true, path: '/', page: 'PrivateSpaceLanding', component: PrivateSpaceLanding});
-routes.private.push({exact: true, path: '/private', page: 'PrivateSpaceLanding', component: PrivatePage});
+routes.private.push({exact: true, path: '/', page: 'PrivateSpaceLanding', component: PrivateSpaceLanding});
+routes.private.push({exact: true, path: '/private', page: 'PrivatePage', component: PrivatePage});
 
 // --------------------------- Shared routes
 routes.shared.push({exact: true, path: '/shared', page: 'SharedPage', component: SharedPage});

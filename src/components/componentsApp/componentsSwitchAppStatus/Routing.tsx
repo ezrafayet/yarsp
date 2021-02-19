@@ -4,8 +4,6 @@ import {AppLevelNoRoute404} from "../../sharedComponents/pages/AppLevelNoRoute40
 import {IRoute, routes} from "../../../routes/routes";
 import {AppContext, IAppContext} from "../context/AppContext";
 import {AbstractRoute} from "./componentsRouting/AbstractRoute";
-import {LandingPage} from "../../publicSpacePages/LandingPage";
-import {PrivateSpaceLanding} from "../../privateSpacePages/PrivateSpaceLanding";
 
 export {Routing};
 
@@ -19,42 +17,37 @@ const Routing = (props: any) => {
 
   const appContext: IAppContext = useContext(AppContext) as IAppContext;
   
-  const userStatus = appContext.appSession.app.userStatus || "unidentified";
-
+  const userStatus = appContext.appSession.app.userStatus;
+  
   return (<Fragment>
 
-    {/*-------- display navbar*/}
-    {/*----------- display window with conditionnal rendering*/}
-    {/*----------- display menu with conditionnal rendering*/}
+    {/*----------- display the window with conditional rendering */}
+    {/*----------- display the navbar */}
 
     <Switch>
 
       {/*------------------------------ Display the correct landing page */}
       {
-        userStatus === "unidentified" && <AbstractRoute exact={true} path={"/"} page={"LandingPage"}
-                                                        userStatusAuthorised={["unidentified", "unknown"]} component={LandingPage} key={0} />
+        ["unidentified", "unknown"].includes(userStatus)  && <AbstractRoute key={0}
+          {...routes.public.find((item: any) => item.path === "/")!} userStatusAuthorised={["unidentified", "unknown"]} />
       }
       {
-        userStatus === "identified" && <AbstractRoute exact={true} path={"/"} page={"PrivateSpaceLanding"}
-                                                        userStatusAuthorised={["identified"]} component={PrivateSpaceLanding} key={0} />
+        userStatus === "identified" && <AbstractRoute key={0}
+          {...routes.private.find((item: any) => item.path === "/")!} userStatusAuthorised={["identified"]} />
       }
 
       {/*------------------------------ all the public routes should be generated here, if the current space is public */}
-      {/*----- Remove the filter if the path "/" defined above does not suite you */}
       {routes.public.filter((item: IRoute) => item.path !== "/")?.map((item: IRoute, key: number) => (
         <AbstractRoute {...item} key={key} userStatusAuthorised={["unidentified", "unknown"]} />))}
 
-      {/*------------------------------ all the private routes should be generated here, if the current space is private */}
-      {/*----- Remove the filter if the path "/" defined above does not suite you */}
+      {/*------------------------------ all the private routes are generated here, if the current space is private */}
       {routes.private.filter((item: IRoute) => item.path !== "/")?.map((item: IRoute, key: number) => (
         <AbstractRoute {...item} key={key} userStatusAuthorised={["identified"]} />))}
 
-      {/*------------------------------ all the shared routes should be generated here, with no condition */}
+      {/*------------------------------ all the shared routes are be generated here, with no condition */}
       {routes.shared.map((item: IRoute, key: number) => (
         <AbstractRoute {...item} key={key} userStatusAuthorised={["unidentified", "unknown", "identified"]} />))}
-
-      {/*-------- Strategy for 403: grant authorisation per route */}
-
+        
       {/* 404 Fallthrough ------------------------------------------------- */}
       <Route render={(componentProps) => <AppLevelNoRoute404 {...componentProps} page="AppLevelNoRoute404"/>}/>
 

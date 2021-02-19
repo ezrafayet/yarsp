@@ -4,46 +4,38 @@ Yet Another React.js Starter-Pack 💎🛡
 
 ## What is this project about ?
 
-This is my own launcher-pack - it will evolve when I have time
+This is my own launcher-pack - it will most likely still evolve
 
 ## Choices
 
-* The project uses **route.ts** to generate routes and access control.
-* The project is using **Typescript** - "prop-type" library is not needed
-* The project is using **useContext and useReduce** to manage application-level state - Redux is not needed in this project (another repo will implement it)
-* The project is using **Sass** - it will probably be replaced / completed by css-in-js
-* The project is using **Create-React-App scripts** - it will be removed in later versions
-* The project is using **functions** to describe React's components - no classes are involved.
+* The project generates routes with access control using **route.ts**.
+* The project is using **Typescript**.
+* The project is using **useContext** to manage application-level state.
+* The project is using **Sass**.
+* The project is using **CRA scripts** - it should be removed in later versions.
+* The project is using **functions** to define components - not classes.
 
-* NB: Do NOT rely on a front-strategy-only to grant access rights, your back **MUST** control it on each request.
+* NB: Do NOT rely on a front-strategy-only to grant access rights, your back **MUST** control them on each request.
 
-## Guide
+## Out of the box
 
-* Error pages (404, 403, Server unavailable) are handled out of the box
-* The login/logout and session logic are there out of the box
-* The routing logic is available out of the box
-* A page layout is available out of the box
-* A context is defined on the App level
+* Error pages (404, 403, Server unavailable).
+* The login/logout and session logic.
+* The routing logic.
+* A page layout.
+* An app-level context.
 
-## Run localy (dev mode)
+## Run localy
 
 * npm i
 * npm run start
 
-It will:
-* Show "loading" for a second, the app is loading and session being set
-* Show the public landing page
-* if you go to /shared you'll see the shared page
-* if you go to /action/accept/kzW4 you'll see the action page
-* if you go to /private you will see a 403 error
-* if you go to /anything you will see a 404 error
-* From the login page, click on "login", you are logged in
-* Click on "go to /page", you will access the route /page, forbidden before
-* Click on "log out", you are logged out
+- Follow the buttons (Login, Navigate to another private page, logout)
+- Note that if you try to access /private you will get a 403 error page
 
 **If I refresh the page I loose the session**
 
-This is the expected behaviour. As all single pages applications, you get your session from the server. In this case there is no server to hold the session. If so, you would not be logged out.
+This is the expected behaviour here. You should get your session from the server.
 
 ## Notes
 
@@ -57,17 +49,17 @@ This is the expected behaviour. As all single pages applications, you get your s
 
 **About the .env:**    
 
-The environment variables will be used only during the build of the app. You can check CRA documentation for a strategy using **.env.local**, **.env.production** ... 
+The environment variables will be used only during the build of the app. You can check CRA documentation for a strategy using **.env.local**, **.env.production** ...
 
 ## Deploy
 
 The choice is yours:
 * **AWS S3** Buckets paired with Route53 and CloudFront are very strong, easy and cheap to host a static website with low traffic. Start by droping the files, you'll build a deploy-and-rollback strategy when needed, with **CodeBuild** or other platforms as **buddy.io**.
-* **Host it** on a server with or without Docker (AWS / Heroku / DigitalOcean allows both strategies)
+* **Host it** on a server with or without Docker (AWS / Heroku / DigitalOcean)
 
 ## Good practises used
 
-## TODO 
+## TODO LEFT
 *[ ] Remove CRA  
 *[ ] Add Docker for server hosting   
 *[ ] Add tests    

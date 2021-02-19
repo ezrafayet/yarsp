@@ -8,31 +8,20 @@ const PrivatePage = (props: any) => {
   
   const appContext: IAppContext = useContext(AppContext) as IAppContext;
   
-  const clickLogoutHandler = async (e: any) => {
-    
-    e.preventDefault();
-
-    const logout = () => {
-      try {
-        // Fetch logout
-        return "success";
-      } catch(error) {
-        throw error;
-      }
-    }
-    
-    const logoutStatus: any = await logout();
-    
-    if(logoutStatus === "success") {
-      appContext.dispatchSession({type: "INITIALIZE_SESSION", value: null});
-      props.history.push('/');
+  const clickLogoutHandler = async () => {
+    try {
+      // Fetch the server to logout here
+      appContext.dispatchSession({type: "LOGOUT", value: null});
+      return props.history.push('/');
+    } catch(error) {
+      return appContext.dispatchSession({type: "SET_SESSION_ERROR", value: null});
     }
   }
   
   return(<>
     Yet another private page
     <br/><br/>
-    <button onClick={(e: any) => clickLogoutHandler(e)}>
+    <button onClick={clickLogoutHandler}>
       Logout
     </button>
   </>);
